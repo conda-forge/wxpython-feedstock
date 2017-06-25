@@ -13,20 +13,32 @@ source:
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
-  skip: True  # [unix]
+  script:
+    - export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include/GL -I${PREFIX}/include"  # [not win]
+    - python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
     - setuptools
+    - gstreamer  # [not win]
+    - gst-plugins-base  # [not win]
+    - mesa  # [not win]
+    - libglu  # [not win]
   run:
     - python
     - six
+    - gstreamer  # [not win]
+    - gst-plugins-base  # [not win]
+    - mesa  # [not win]
+    - libglu  # [not win]
 
 test:
   imports:
     - wx
+  commands:
+    - conda inspect linkages -p $PREFIX wxPython  # [not win]
+    - conda inspect objects -p $PREFIX wxPython  # [osx]
 
 about:
   home: https://wxpython.org/Phoenix/
@@ -49,3 +61,4 @@ about:
 extra:
   recipe-maintainers:
     - Korijn
+    - ocefpaf
