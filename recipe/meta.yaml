@@ -21,17 +21,17 @@ requirements:
   build:
     - python
     - setuptools
-    - gstreamer  # [not win]
-    - gst-plugins-base  # [not win]
-    - mesa  # [not win]
-    - libglu  # [not win]
+    - gstreamer  # [linux]
+    - gst-plugins-base  # [linux]
+    - mesa  # [linux]
+    - libglu  # [linux]
   run:
     - python
     - six
-    - gstreamer  # [not win]
-    - gst-plugins-base  # [not win]
-    - mesa  # [not win]
-    - libglu  # [not win]
+    - gstreamer  # [linux]
+    - gst-plugins-base  # [linux]
+    - mesa  # [linux]
+    - libglu  # [linux]
 
 test:
   imports:
