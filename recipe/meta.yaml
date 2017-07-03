@@ -27,6 +27,7 @@ requirements:
     - libglu  # [linux]
   run:
     - python
+    - python.app  # [osx]
     - six
     - gstreamer  # [linux]
     - gst-plugins-base  # [linux]
