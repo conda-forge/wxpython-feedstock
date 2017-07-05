@@ -13,9 +13,12 @@ source:
 
 build:
   number: 0
+  skip: True  # [osx]
   script:
     - export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include/GL -I${PREFIX}/include"  # [not win]
-    - python setup.py install --single-version-externally-managed --record record.txt
+    - python build.py build_wx install_wx --no_magic  # [not win]
+    - python build.py build_py install_py --no_magic --use_syswx  # [not win]
+    - python setup.py install --single-version-externally-managed --record record.txt  # [win]
 
 requirements:
   build:
