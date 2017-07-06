@@ -1,24 +1,18 @@
-{% set name = "wxPython" %}
 {% set version = "4.0.0a2" %}
-{% set sha256 = "3acd5160d69f56b588476d1907eff67b53ad58fb2eba4dedabcdc3490d170338" %}
 
 package:
-  name: {{ name|lower }}
+  name: wxpython
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  fn: wxpython-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/w/wxpython/wxPython-{{ version }}.tar.gz
+  sha256: 3acd5160d69f56b588476d1907eff67b53ad58fb2eba4dedabcdc3490d170338
 
 build:
   number: 0
   skip: True  # [osx]
-  script:
-    - export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include/GL -I${PREFIX}/include"  # [not win]
-    - python build.py build_wx install_wx --no_magic  # [not win]
-    - python build.py build_py install_py --no_magic --use_syswx  # [not win]
-    - python setup.py install --single-version-externally-managed --record record.txt  # [win]
+  script: python setup.py install --single-version-externally-managed --record record.txt  # [win]
 
 requirements:
   build:
@@ -41,8 +35,8 @@ test:
   imports:
     - wx
   commands:
-    - conda inspect linkages -p $PREFIX wxPython  # [not win]
-    - conda inspect objects -p $PREFIX wxPython  # [osx]
+    - conda inspect linkages -p $PREFIX wxpython  # [not win]
+    - conda inspect objects -p $PREFIX wxpython  # [osx]
 
 about:
   home: https://wxpython.org/Phoenix/
