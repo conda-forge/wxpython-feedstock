@@ -1,32 +1,44 @@
-{% set name = "wxPython" %}
-{% set version = "4.0.0a2" %}
-{% set sha256 = "3acd5160d69f56b588476d1907eff67b53ad58fb2eba4dedabcdc3490d170338" %}
+{% set version = "4.0.0a3" %}
 
 package:
-  name: {{ name|lower }}
+  name: wxpython
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  fn: wxpython-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/w/wxpython/wxPython-{{ version }}.tar.gz
+  sha256: b147b1a3b4d10da88100fc89a3c4225ba6ff1f89e5da77218989b198ab92b2e6
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
-  skip: True  # [unix]
+  skip: True  # [osx]
+  # This one is built on anther branch to avoid timeouts/
+  skip: True  # [linux and py36]
+  script: python setup.py install --single-version-externally-managed --record record.txt  # [win]
 
 requirements:
   build:
     - python
     - setuptools
+    - gstreamer  # [linux]
+    - gst-plugins-base  # [linux]
+    - mesa  # [linux]
+    - libglu  # [linux]
   run:
     - python
+    - python.app  # [osx]
     - six
+    - gstreamer  # [linux]
+    - gst-plugins-base  # [linux]
+    - mesa  # [linux]
+    - libglu  # [linux]
 
 test:
   imports:
     - wx
+  commands:
+    - conda inspect linkages -p $PREFIX wxpython  # [not win]
+    - conda inspect objects -p $PREFIX wxpython  # [osx]
 
 about:
   home: https://wxpython.org/Phoenix/
@@ -49,3 +61,4 @@ about:
 extra:
   recipe-maintainers:
     - Korijn
+    - ocefpaf
