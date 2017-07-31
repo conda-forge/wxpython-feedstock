@@ -12,6 +12,8 @@ source:
 build:
   number: 0
   skip: True  # [osx]
+  # This one is built on anther branch to avoid timeouts/
+  skip: True  # [linux and py36]
   script: python setup.py install --single-version-externally-managed --record record.txt  # [win]
 
 requirements:
