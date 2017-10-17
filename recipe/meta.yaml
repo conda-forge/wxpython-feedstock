@@ -26,6 +26,8 @@ requirements:
     - mesa  # [linux]
     - libglu  # [linux]
     - backports.lzma # [osx]
+    - requests
+    - gettext
   run:
     - python
     - python.app  # [osx]
