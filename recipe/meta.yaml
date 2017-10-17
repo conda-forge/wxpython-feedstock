@@ -25,6 +25,7 @@ requirements:
     - gst-plugins-base  # [linux]
     - mesa  # [linux]
     - libglu  # [linux]
+    - backports.lzma # [osx]
   run:
     - python
     - python.app  # [osx]
@@ -33,6 +34,7 @@ requirements:
     - gst-plugins-base  # [linux]
     - mesa  # [linux]
     - libglu  # [linux]
+    - backports.lzma # [osx]
 
 test:
   imports:
