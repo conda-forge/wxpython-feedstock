@@ -27,7 +27,7 @@ requirements:
     - libglu  # [linux]
     - backports.lzma # [osx]
     - requests
-    - gettext
+    - gettext # [not win]
   run:
     - python
     - python.app  # [osx]
