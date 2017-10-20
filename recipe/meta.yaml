@@ -25,9 +25,9 @@ requirements:
     - gst-plugins-base  # [linux]
     - mesa  # [linux]
     - libglu  # [linux]
-    - backports.lzma # [osx]
+    - backports.lzma  # [osx]
     - requests
-    - gettext # [not win]
+    - gettext  # [not win]
   run:
     - python
     - python.app  # [osx]
