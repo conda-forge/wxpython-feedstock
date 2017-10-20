@@ -17,7 +17,7 @@ build:
 requirements:
   build:
     - python
-    - toolchain  # [not win]
+    - toolchain
     - setuptools
     - gstreamer  # [linux]
     - gst-plugins-base  # [linux]
