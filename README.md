@@ -23,7 +23,6 @@ Current build status
 ====================
 
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/wxpython-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/wxpython-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/wxpython-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/wxpython-feedstock)
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/wxpython-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/wxpython-feedstock/branch/master)
 
 Current release info
