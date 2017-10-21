@@ -8,6 +8,8 @@ source:
   fn: wxpython-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/w/wxpython/wxPython-{{ version }}.tar.gz
   sha256: b147b1a3b4d10da88100fc89a3c4225ba6ff1f89e5da77218989b198ab92b2e6
+  patches:
+    - build.py.patch  # make sure windows builds dont try to use msgfmt
 
 build:
   number: 0
