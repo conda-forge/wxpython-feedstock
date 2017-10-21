@@ -28,7 +28,7 @@ PING_LOOP_PID=$!
 ## START BUILD
 
 if [[ $(uname) == Darwin ]]; then
-  $PYTHON setup.py install --single-version-externally-managed --record record.txt
+  $PYTHON setup.py install --single-version-externally-managed --record record.txt  >> $BUILD_OUTPUT 2>&1
 elif [[ $(uname) == Linux ]]; then
   export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include/GL -I${PREFIX}/include"
   $PYTHON build.py build_wx install_wx --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT >> $BUILD_OUTPUT 2>&1
