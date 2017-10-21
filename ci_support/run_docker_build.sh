@@ -63,7 +63,7 @@ source run_conda_forge_build_setup
 # "recipe/yum_requirements.txt" file. After updating that file,
 # run "conda smithy rerender" and this line be updated
 # automatically.
-/usr/bin/sudo -n yum install -y gtk2-devel webkitgtk-devel
+/usr/bin/sudo -n yum install -y gtk3-devel webkitgtk-devel
 
 
 conda build /recipe_root --quiet || exit 1
