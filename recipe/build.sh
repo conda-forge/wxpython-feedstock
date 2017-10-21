@@ -31,6 +31,20 @@ trap 'error_handler' ERR
 ## START BUILD
 
 if [[ $(uname) == Darwin ]]; then
+  # compiler on macOS seems to ignore the CPPFLAGS variable
+  # see https://clang.llvm.org/docs/CommandGuide/clang.html
+  export CPATH="${CPATH}:${PREFIX}/include"
+  # on macOS 10.13 with XCode 9.0 mediactrl.mm compile errors out at #import <AVFoundation/AVFoundation.h> with:
+  # 'AVCaptureDeviceType' is unavailable: not available on macOS
+  # turns out default wxWidgets build is with -mmacosx-version-min=10.5 whilst
+  # AVFoundation.h looks like it needs at least 10.7
+  # you may send cpbotha beers. :)
+  sed -i -e s/"--enable-mediactrl"/"--enable-mediactrl --with-macosx-version-min=10.7"/g buildtools/build_wxwidgets.py
+  # build documentation, etg and sip files before the real build starts
+  # required for sip wrappings to be generated
+  # we would only need this if it's a checkout, but we're using a snapshot which includes generated files
+  # https://groups.google.com/d/msg/wxpython-dev/klFi8Ls7Ss8/RitVSbzt-GgJ
+  # $PYTHON build.py dox etg --nodoc sip
   $PYTHON setup.py install --single-version-externally-managed --record record.txt  >> $BUILD_OUTPUT 2>&1
 elif [[ $(uname) == Linux ]]; then
   export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include/GL -I${PREFIX}/include"

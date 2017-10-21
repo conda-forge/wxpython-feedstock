@@ -1,4 +1,4 @@
-{% set version = "4.0.0a3" %}
+{% set version = "4.0.0rc1.dev3440+0f9b36e" %}
 
 package:
   name: wxpython
@@ -6,14 +6,14 @@ package:
 
 source:
   fn: wxpython-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/w/wxpython/wxPython-{{ version }}.tar.gz
-  sha256: b147b1a3b4d10da88100fc89a3c4225ba6ff1f89e5da77218989b198ab92b2e6
+  url: https://wxpython.org/Phoenix/snapshot-builds/wxPython-{{ version }}.tar.gz
+  sha1: ae67fe9ec6124e42f18bef4a0a01a1d527e4ca2f
   patches:
     - build.py.patch  # make sure windows builds dont try to use msgfmt
 
 build:
   number: 0
-  skip: True  # [osx]
+  osx_is_app: True  # [osx]
   script: python setup.py install --single-version-externally-managed --record record.txt  # [win]
 
 requirements:
