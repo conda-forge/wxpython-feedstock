@@ -31,6 +31,10 @@ trap 'error_handler' ERR
 ## START BUILD
 
 if [[ $(uname) == Darwin ]]; then
+  # toolchain already enables libc++, now we enable c++11 support as well
+  # this is supposed to help against the error "'type_traits' file not found"
+  # see https://github.com/openMVG/openMVG/issues/316
+  export CXXFLAGS="${CXXFLAGS} -std=c++11"
   # compiler on macOS seems to ignore the CPPFLAGS variable
   # see https://clang.llvm.org/docs/CommandGuide/clang.html
   export CPATH="${CPATH}:${PREFIX}/include"
