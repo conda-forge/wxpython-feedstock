@@ -48,8 +48,8 @@ if [[ $(uname) == Darwin ]]; then
   $PYTHON setup.py install --single-version-externally-managed --record record.txt  >> $BUILD_OUTPUT 2>&1
 elif [[ $(uname) == Linux ]]; then
   export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include/GL -I${PREFIX}/include"
-  $PYTHON build.py build_wx install_wx --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT >> $BUILD_OUTPUT 2>&1
-  $PYTHON build.py build_py install_py --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT >> $BUILD_OUTPUT 2>&1
+  $PYTHON build.py build_wx install_wx --gtk2 --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT >> $BUILD_OUTPUT 2>&1
+  $PYTHON build.py build_py install_py --gtk2 --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT >> $BUILD_OUTPUT 2>&1
 fi
 
 ## END BUILD
