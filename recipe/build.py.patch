@@ -1,8 +1,8 @@
 diff --git a/build.py b/build.py
-index 91238f7..8adc550 100644
+index 923bdc2..3f57250 100644
 --- a/build.py
 +++ b/build.py
-@@ -1272,7 +1272,7 @@ def cmd_build_wx(options, args):
+@@ -1282,7 +1282,7 @@ def cmd_build_wx(options, args):
  
      # Build the wx message catalogs, but first check that there is a msgfmt
      # command available
