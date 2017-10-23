@@ -41,8 +41,9 @@ if [[ $(uname) == Darwin ]]; then
   # 'AVCaptureDeviceType' is unavailable: not available on macOS
   # turns out default wxWidgets build is with -mmacosx-version-min=10.5 whilst
   # AVFoundation.h looks like it needs at least 10.7
-  # you may send cpbotha beers. :)
-  sed -i -e s/"--enable-mediactrl"/"--enable-mediactrl --with-macosx-version-min=10.7"/g buildtools/build_wxwidgets.py
+  # furthermore, we need at least 10.9 to be able to build with libc++ and avoid the dreaded
+  # "strvararg.h:25:14: fatal error: 'type_traits' file not found" build error
+  sed -i -e s/"--enable-mediactrl"/"--enable-mediactrl --with-macosx-version-min=10.9"/g buildtools/build_wxwidgets.py
   # build documentation, etg and sip files before the real build starts
   # required for sip wrappings to be generated
   # we would only need this if it's a checkout, but we're using a snapshot which includes generated files
