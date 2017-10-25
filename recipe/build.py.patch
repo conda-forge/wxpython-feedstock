@@ -1,5 +1,5 @@
 diff --git a/build.py b/build.py
-index 923bdc2..3f57250 100644
+index 5af912f..59f1b33 100644
 --- a/build.py
 +++ b/build.py
 @@ -1282,7 +1282,7 @@ def cmd_build_wx(options, args):
