@@ -14,7 +14,7 @@ source:
 build:
   number: 0
   osx_is_app: True  # [osx]
-  skip: True  # [osx] cannot buikd within travis build time limit
+  skip: True  # [osx] cannot build within travis build time limit
   script: python setup.py install --single-version-externally-managed --record record.txt  # [win]
 
 requirements:
