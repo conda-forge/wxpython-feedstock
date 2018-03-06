@@ -1,0 +1,13 @@
+diff --git a/build.py b/build.py
+index 5af912f..59f1b33 100644
+--- a/build.py
++++ b/build.py
+@@ -1282,7 +1282,7 @@ def cmd_build_wx(options, args):
+ 
+     # Build the wx message catalogs, but first check that there is a msgfmt
+     # command available
+-    if findCmd('msgfmt'):
++    if findCmd('msgfmt') and not isWindows:
+         locale_pwd = pushDir(posixjoin(wxDir(), 'locale'))
+         print('Building message catalogs in ' + os.getcwd())
+         runcmd('make allmo')
