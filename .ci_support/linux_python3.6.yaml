@@ -1,0 +1,12 @@
+gst_plugins_base:
+- '1.12'
+gstreamer:
+- '1.12'
+pin_run_as_build:
+  gstreamer:
+    max_pin: x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- '3.6'
