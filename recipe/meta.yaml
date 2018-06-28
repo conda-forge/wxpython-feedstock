@@ -1,4 +1,4 @@
-{% set version = "4.0.1" %}
+{% set version = "4.0.3" %}
 
 package:
   name: wxpython
@@ -7,7 +7,7 @@ package:
 source:
   fn: wxPython-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha1: 1e585236b6cac1dd3c7b7e316d07cab6eedd9c2a
+  sha1: 94b156bee6de0bf7806dd729b05c793f6c41a83e
   patches:
     - build.py.patch  # make sure windows builds dont try to use msgfmt
 
