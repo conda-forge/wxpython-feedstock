@@ -6,16 +6,21 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha1: 94b156bee6de0bf7806dd729b05c793f6c41a83e
+  sha256: 8d0dfc0146c24749ce00d575e35cc2826372e809d5bc4a57bde6c89031b59e75
   patches:
-    - build.py.patch  # make sure windows builds dont try to use msgfmt
+    # Make sure windows builds dont try to use msgfmt.
+    - build.py.patch
+    - 0001-MacOSX-Use-libc-not-libstdc.patch
+    - 0002-MacOSX-Specify-correct-SDK-path-and-version.patch
+    - 0003-Don-t-enable-debug-info-for-all-builds.patch
+    - 0004-Use-custom-function-for-python_header-checking-on-Da.patch
 
 build:
-  number: 1
+  number: 2
   osx_is_app: True  # [osx]
-  #  cannot build within travis build time limit
-  skip: True  # [osx]
-  script: python -m pip install --no-deps --ignore-installed .  # [win]
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"  # [win]
+  missing_dso_whitelist:                                           # [osx]
+    - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
 
 requirements:
   build:
@@ -23,10 +28,20 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - python
-    - pip
+    - pthread-stubs
+    - setuptools
+    - glib              # [linux]
+    - xz                # [unix]
+    - expat             # [unix]
+    - zlib              # [unix]
+    - cairo             # [linux]
+    - jpeg              # [unix]
+    - pango             # [linux]
+    - libpng            # [unix]
+    - libxml2           # [linux]
+    - libiconv          # [osx]
     - gstreamer  # [linux]
     - gst-plugins-base  # [linux]
-    - mesa  # [linux]
     - libglu  # [linux]
     - backports.lzma  # [osx]
     - requests
@@ -34,19 +49,28 @@ requirements:
   run:
     - python
     - python.app  # [osx]
-    - six
+    - pthread-stubs
+    - setuptools
+    - glib              # [linux]
+    - xz                # [unix]
+    - expat             # [unix]
+    - zlib              # [unix]
+    - cairo             # [linux]
+    - jpeg              # [unix]
+    - pango             # [linux]
+    - libpng            # [unix]
+    - libxml2           # [linux]
+    - libiconv          # [osx]
     - gstreamer  # [linux]
     - gst-plugins-base  # [linux]
-    - mesa  # [linux]
     - libglu  # [linux]
     - backports.lzma  # [osx]
+    - requests
+    - gettext  # [not win]
 
 test:
   imports:
     - wx
-  commands:
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: https://wxpython.org/Phoenix/
