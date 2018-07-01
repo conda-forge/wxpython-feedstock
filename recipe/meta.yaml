@@ -12,15 +12,17 @@ source:
     - build.py.patch  # make sure windows builds dont try to use msgfmt
 
 build:
-  number: 0
+  number: 1
   osx_is_app: True  # [osx]
   skip: True  # [osx] cannot build within travis build time limit
   script: python setup.py install --single-version-externally-managed --record record.txt  # [win]
 
 requirements:
   build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
-    - toolchain
     - setuptools
     - gstreamer  # [linux]
     - gst-plugins-base  # [linux]
