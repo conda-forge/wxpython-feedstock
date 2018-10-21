@@ -18,7 +18,7 @@ source:
 build:
   number: 2
   osx_is_app: True  # [osx]
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"  # [win]
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"  # [win]
   missing_dso_whitelist:                                           # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
 
@@ -26,47 +26,49 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - pkg-config  # [not win]
   host:
     - python
-    - pthread-stubs
-    - setuptools
-    - glib              # [linux]
-    - xz                # [unix]
-    - expat             # [unix]
-    - zlib              # [unix]
-    - cairo             # [linux]
-    - jpeg              # [unix]
-    - pango             # [linux]
-    - libpng            # [unix]
-    - libxml2           # [linux]
-    - libiconv          # [osx]
-    - gstreamer  # [linux]
-    - gst-plugins-base  # [linux]
-    - libglu  # [linux]
     - backports.lzma  # [osx]
-    - requests
+    - cairo  # [linux]
+    - expat  # [not win]
     - gettext  # [not win]
+    - glib  # [linux]
+    - gst-plugins-base  # [linux]
+    - gstreamer  # [linux]
+    - jpeg  # [not win]
+    - libglu  # [linux]
+    - libiconv  # [osx]
+    - libpng  # [not win]
+    - libxml2  # [linux]
+    - pango  # [linux]
+    - pthread-stubs
+    - requests
+    - setuptools
+    - xz  # [not win]
+    - zlib  # [not win]
   run:
     - python
-    - python.app  # [osx]
-    - pthread-stubs
-    - setuptools
-    - glib              # [linux]
-    - xz                # [unix]
-    - expat             # [unix]
-    - zlib              # [unix]
-    - cairo             # [linux]
-    - jpeg              # [unix]
-    - pango             # [linux]
-    - libpng            # [unix]
-    - libxml2           # [linux]
-    - libiconv          # [osx]
-    - gstreamer  # [linux]
-    - gst-plugins-base  # [linux]
-    - libglu  # [linux]
     - backports.lzma  # [osx]
-    - requests
+    - cairo  # [linux]
+    - expat  # [not win]
     - gettext  # [not win]
+    - glib  # [linux]
+    - gst-plugins-base  # [linux]
+    - gstreamer  # [linux]
+    - jpeg  # [not win]
+    - libglu  # [linux]
+    - libiconv  # [osx]
+    - libpng  # [not win]
+    - libxml2  # [linux]
+    - pango  # [linux]
+    - pthread-stubs
+    - python.app  # [osx]
+    - requests
+    - setuptools
+    - six
+    - xz  # [not win]
+    - zlib  # [not win]
 
 test:
   imports:
@@ -85,7 +87,7 @@ about:
     extensibility. Just like "Classic" wxPython, Phoenix wraps the wxWidgets C++
     toolkit and provides access to the user interface portions of the wxWidgets
     API, enabling Python applications to have a native GUI on Windows, Macs or
-    Unix systems, with a native look and feel and requiring very little (if any)
+    not win systems, with a native look and feel and requiring very little (if any)
     platform specific code.
   doc_url: https://wxpython.org/Phoenix/docs/html/index.html
   dev_url: https://github.com/wxWidgets/Phoenix
