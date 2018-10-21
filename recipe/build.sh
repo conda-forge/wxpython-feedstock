@@ -27,7 +27,7 @@ if [[ $(uname) == Darwin ]]; then
   # we would only need this if it's a checkout, but we're using a snapshot which includes generated files
   # https://groups.google.com/d/msg/wxpython-dev/klFi8Ls7Ss8/RitVSbzt-GgJ
   # $PYTHON build.py dox etg --nodoc sip
-  $PYTHON -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  $PYTHON -m pip install . --no-deps --ignore-installed -vvv
 elif [[ $(uname) == Linux ]]; then
   export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include/GL -I${PREFIX}/include"
 

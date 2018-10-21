@@ -29,6 +29,7 @@ requirements:
     - pkg-config  # [not win]
   host:
     - python
+    - pip
     - backports.lzma  # [osx]
     - cairo  # [linux]
     - expat  # [not win]
