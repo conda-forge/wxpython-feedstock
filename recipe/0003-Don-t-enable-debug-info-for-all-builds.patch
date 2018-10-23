@@ -1,0 +1,31 @@
+From 20ce56682a62ab9bee76f117af8367368fcc3e20 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Tue, 13 Mar 2018 18:32:19 +0000
+Subject: [PATCH 3/3] Don't enable debug info for all builds
+
+---
+ wscript | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/wscript b/wscript
+index d051ebbc..9e459174 100644
+--- a/wscript
++++ b/wscript
+@@ -269,12 +269,10 @@ def configure(conf):
+         conf.env.CFLAGS_WXPY.append('-UNDEBUG')
+         conf.env.CXXFLAGS_WXPY.append('-UNDEBUG')
+ 
+-        # Add basic debug info for all builds
+-        conf.env.CFLAGS_WXPY.append('-g')
+-        conf.env.CXXFLAGS_WXPY.append('-g')
+-
+         # And if --debug is set turn on more detailed debug info and turn off optimization
+         if conf.env.debug:
++            conf.env.CFLAGS_WXPY.append('-g')
++            conf.env.CXXFLAGS_WXPY.append('-g')
+             conf.env.CFLAGS_WXPY.extend(['-ggdb', '-O0'])
+             conf.env.CXXFLAGS_WXPY.extend(['-ggdb', '-O0'])
+ 
+-- 
+2.16.1
+

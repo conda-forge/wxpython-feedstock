@@ -6,47 +6,76 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha1: 94b156bee6de0bf7806dd729b05c793f6c41a83e
+  sha256: 8d0dfc0146c24749ce00d575e35cc2826372e809d5bc4a57bde6c89031b59e75
   patches:
-    - build.py.patch  # make sure windows builds dont try to use msgfmt
+    # Make sure windows builds dont try to use msgfmt.
+    - build.py.patch
+    - 0001-MacOSX-Use-libc-not-libstdc.patch
+    - 0002-MacOSX-Specify-correct-SDK-path-and-version.patch
+    - 0003-Don-t-enable-debug-info-for-all-builds.patch
+    - 0004-Use-custom-function-for-python_header-checking-on-Da.patch
 
 build:
-  number: 1
+  number: 2
   osx_is_app: True  # [osx]
-  #  cannot build within travis build time limit
-  skip: True  # [osx]
-  script: python -m pip install --no-deps --ignore-installed .  # [win]
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"  # [win]
+  missing_dso_whitelist:                                           # [osx]
+    - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - pkg-config  # [not win]
   host:
     - python
     - pip
-    - gstreamer  # [linux]
-    - gst-plugins-base  # [linux]
-    - mesa  # [linux]
-    - libglu  # [linux]
     - backports.lzma  # [osx]
-    - requests
+    - cairo  # [linux]
+    - expat  # [not win]
     - gettext  # [not win]
+    - glib  # [linux]
+    - gst-plugins-base  # [linux]
+    - gstreamer  # [linux]
+    - gtk2  # [linux]
+    - jpeg  # [not win]
+    - libglu  # [linux]
+    - libiconv  # [osx]
+    - libpng  # [not win]
+    - libxml2  # [linux]
+    - pango  # [linux]
+    - pthread-stubs
+    - requests
+    - setuptools
+    - xz  # [not win]
+    - zlib  # [not win]
   run:
     - python
-    - python.app  # [osx]
-    - six
-    - gstreamer  # [linux]
-    - gst-plugins-base  # [linux]
-    - mesa  # [linux]
-    - libglu  # [linux]
     - backports.lzma  # [osx]
+    - cairo  # [linux]
+    - expat  # [not win]
+    - gettext  # [not win]
+    - glib  # [linux]
+    - gst-plugins-base  # [linux]
+    - gstreamer  # [linux]
+    - gtk2  # [linux]
+    - jpeg  # [not win]
+    - libglu  # [linux]
+    - libiconv  # [osx]
+    - libpng  # [not win]
+    - libxml2  # [linux]
+    - pango  # [linux]
+    - pthread-stubs
+    - python.app  # [osx]
+    - requests
+    - setuptools
+    - six
+    - xz  # [not win]
+    - zlib  # [not win]
 
 test:
   imports:
     - wx
-  commands:
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: https://wxpython.org/Phoenix/
@@ -61,7 +90,7 @@ about:
     extensibility. Just like "Classic" wxPython, Phoenix wraps the wxWidgets C++
     toolkit and provides access to the user interface portions of the wxWidgets
     API, enabling Python applications to have a native GUI on Windows, Macs or
-    Unix systems, with a native look and feel and requiring very little (if any)
+    not win systems, with a native look and feel and requiring very little (if any)
     platform specific code.
   doc_url: https://wxpython.org/Phoenix/docs/html/index.html
   dev_url: https://github.com/wxWidgets/Phoenix
