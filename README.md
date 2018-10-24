@@ -15,7 +15,7 @@ implementation is focused on improving speed, maintainability and
 extensibility. Just like "Classic" wxPython, Phoenix wraps the wxWidgets C++
 toolkit and provides access to the user interface portions of the wxWidgets
 API, enabling Python applications to have a native GUI on Windows, Macs or
-Unix systems, with a native look and feel and requiring very little (if any)
+not win systems, with a native look and feel and requiring very little (if any)
 platform specific code.
 
 
