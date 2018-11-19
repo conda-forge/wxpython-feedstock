@@ -1,0 +1,69 @@
+build_number_decrement:
+- '0'
+c_compiler:
+- gcc
+cairo:
+- '1.14'
+channel_sources:
+- conda-forge/label/gcc7,defaults
+channel_targets:
+- conda-forge gcc7
+cxx_compiler:
+- gxx
+docker_image:
+- condaforge/linux-anvil-comp7
+expat:
+- '2.2'
+glib:
+- '2.56'
+gst_plugins_base:
+- '1.12'
+gstreamer:
+- '1.12'
+jpeg:
+- '9'
+libpng:
+- 1.6.35
+libxml2:
+- '2.9'
+pango:
+- '1.40'
+pin_run_as_build:
+  cairo:
+    max_pin: x.x
+  expat:
+    max_pin: x.x
+  glib:
+    max_pin: x.x
+  gst-plugins-base:
+    max_pin: x.x
+  gstreamer:
+    max_pin: x.x
+  jpeg:
+    max_pin: x
+  libpng:
+    max_pin: x.x
+  libxml2:
+    max_pin: x.x
+  pango:
+    max_pin: x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+  xz:
+    max_pin: x.x
+  zlib:
+    max_pin: x.x
+python:
+- '2.7'
+xz:
+- '5.2'
+zip_keys:
+- - c_compiler
+  - cxx_compiler
+  - channel_sources
+  - channel_targets
+  - docker_image
+  - build_number_decrement
+zlib:
+- '1.2'

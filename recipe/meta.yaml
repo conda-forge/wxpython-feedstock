@@ -16,7 +16,7 @@ source:
     - 0004-Use-custom-function-for-python_header-checking-on-Da.patch
 
 build:
-  number: 2
+  number: 1002
   osx_is_app: True  # [osx]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"  # [win]
   missing_dso_whitelist:                                           # [osx]
@@ -26,6 +26,27 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ cdt('gtk2-devel') }}            # [linux]
+    - {{ cdt('libpng-devel') }}          # [linux]
+    - {{ cdt('libxrender-devel') }}      # [linux]
+    - {{ cdt('mesa-libgl-devel') }}      # [linux]
+    - {{ cdt('mesa-dri-drivers') }}      # [linux]
+    - {{ cdt('libXxf86vm-devel') }}      # [linux]
+    - {{ cdt('libselinux') }}            # [linux]
+    - {{ cdt('libdrm-devel') }}          # [linux]
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+    - {{ cdt('libxau-devel') }}          # [linux]
+    - {{ cdt('libx11-devel') }}          # [linux]
+    - {{ cdt('libxfixes-devel') }}       # [linux]
+    - {{ cdt('libxext-devel') }}         # [linux]
+    - {{ cdt('libxinerama') }}           # [linux]
+    - {{ cdt('libxi') }}                 # [linux]
+    - {{ cdt('libxcb') }}                # [linux]
+    - {{ cdt('libxcursor') }}            # [linux]
+    - {{ cdt('libxcomposite') }}         # [linux]
+    - {{ cdt('libxdamage-devel') }}      # [linux]
+    - {{ cdt('webkitgtk-devel') }}       # [linux]
+    - {{ cdt('libsoup-devel') }}         # [linux]
   host:
     - python
     - pip
