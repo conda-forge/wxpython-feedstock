@@ -1,4 +1,4 @@
-{% set version = "4.0.3" %}
+{% set version = "4.0.4" %}
 
 package:
   name: wxpython
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha256: 8d0dfc0146c24749ce00d575e35cc2826372e809d5bc4a57bde6c89031b59e75
+  sha256: 0d9ef4260cb2f3e23ed9dcf6baa905ba585ac7d631613cddc299c4c83463ae29
   patches:
     # Make sure windows builds dont try to use msgfmt.
     - build.py.patch
@@ -16,7 +16,7 @@ source:
     - 0004-Use-custom-function-for-python_header-checking-on-Da.patch
 
 build:
-  number: 1002
+  number: 1000
   osx_is_app: True  # [osx]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"  # [win]
   missing_dso_whitelist:                                           # [osx]
