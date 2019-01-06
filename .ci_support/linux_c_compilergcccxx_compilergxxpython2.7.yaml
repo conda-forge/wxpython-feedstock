@@ -3,7 +3,7 @@ build_number_decrement:
 c_compiler:
 - gcc
 cairo:
-- '1.14'
+- '1.16'
 channel_sources:
 - conda-forge/label/gcc7,defaults
 channel_targets:
@@ -15,7 +15,7 @@ docker_image:
 expat:
 - '2.2'
 glib:
-- '2.56'
+- '2.58'
 gst_plugins_base:
 - '1.12'
 gstreamer:
