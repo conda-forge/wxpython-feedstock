@@ -92,10 +92,12 @@ requirements:
     - six
     - xz  # [not win]
     - zlib  # [not win]
+    - pypubsub  # [py3k]
 
 test:
   imports:
     - wx
+    - wx.lib.pubsub  # [py3k]
 
 about:
   home: https://wxpython.org/Phoenix/
@@ -118,3 +120,4 @@ about:
 extra:
   recipe-maintainers:
     - ocefpaf
+    - constantinpape
