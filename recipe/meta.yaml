@@ -16,7 +16,7 @@ source:
     - 0004-Use-custom-function-for-python_header-checking-on-Da.patch
 
 build:
-  number: 1003
+  number: 1004
   osx_is_app: True  # [osx]
   missing_dso_whitelist:                                           # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
@@ -91,10 +91,24 @@ requirements:
     - six
     - xz  # [not win]
     - zlib  # [not win]
-
 test:
   imports:
     - wx
+
+outputs:
+  - name: wxpython
+  - name: wxpython-wxwidgets
+    script: install_wxwidgets.bat   # [win]
+    requirements:
+      run:
+        - wxpython
+    test:
+      commands:
+        - if not exist %LIBRARY_INC%\\wx\\setup.h exit 1                # [win]
+    about:
+      summary: wxWindows headers and libraries used in wxpython package
+      license: wxWindows Library v3.1
+      license_family: LGPL
 
 about:
   home: https://wxpython.org/Phoenix/
