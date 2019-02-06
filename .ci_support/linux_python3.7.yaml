@@ -15,9 +15,9 @@ expat:
 glib:
 - '2.58'
 gst_plugins_base:
-- '1.12'
+- 1.14.4
 gstreamer:
-- '1.12'
+- 1.14.4
 jpeg:
 - '9'
 libpng:
@@ -30,12 +30,6 @@ pin_run_as_build:
   cairo:
     max_pin: x.x
   expat:
-    max_pin: x.x
-  glib:
-    max_pin: x.x
-  gst-plugins-base:
-    max_pin: x.x
-  gstreamer:
     max_pin: x.x
   jpeg:
     max_pin: x
