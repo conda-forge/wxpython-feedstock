@@ -15,7 +15,7 @@ source:
     - 0004-Use-custom-function-for-python_header-checking-on-Da.patch
 
 build:
-  number: 0
+  number: 1
   osx_is_app: True  # [osx]
   missing_dso_whitelist:                                           # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
