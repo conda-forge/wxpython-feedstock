@@ -100,7 +100,7 @@ test:
     - wx.lib.pubsub  # [py3k]
 
 about:
-  home: https://wxpython.org/Phoenix/
+  home: https://wxpython.org/
   license: wxWindows Library v3.1
   license_family: LGPL
   # license_file: LICENSE.txt
@@ -114,7 +114,7 @@ about:
     API, enabling Python applications to have a native GUI on Windows, Macs or
     not win systems, with a native look and feel and requiring very little (if any)
     platform specific code.
-  doc_url: https://wxpython.org/Phoenix/docs/html/index.html
+  doc_url: https://docs.wxpython.org/
   dev_url: https://github.com/wxWidgets/Phoenix
 
 extra:
