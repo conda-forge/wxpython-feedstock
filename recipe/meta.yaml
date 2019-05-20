@@ -1,4 +1,4 @@
-{% set version = "4.0.4" %}
+{% set version = "4.0.5" %}
 
 package:
   name: wxpython
@@ -6,13 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha256: 0d9ef4260cb2f3e23ed9dcf6baa905ba585ac7d631613cddc299c4c83463ae29
+  sha256: d4ecfddd484970b544bc524f3297c6fa7516300c71210e26e04c74bd2d6b41b7
   patches:
     - build.py.patch  # Make sure windows builds dont try to use msgfmt.
     - 0001-MacOSX-Use-libc-not-libstdc.patch
     - 0002-MacOSX-Specify-correct-SDK-path-and-version.patch
     - 0003-Don-t-enable-debug-info-for-all-builds.patch
-    - 0004-Use-custom-function-for-python_header-checking-on-Da.patch
 
 build:
   number: 0
@@ -69,6 +68,7 @@ requirements:
     - setuptools
     - xz  # [not win]
     - zlib  # [not win]
+    - pathlib2
   run:
     - python
     - backports.lzma  # [osx]
@@ -93,6 +93,7 @@ requirements:
     - xz  # [not win]
     - zlib  # [not win]
     - pypubsub  # [py3k]
+    - pathlib2
 
 test:
   imports:
