@@ -12,7 +12,6 @@ source:
     - 0001-MacOSX-Use-libc-not-libstdc.patch
     - 0002-MacOSX-Specify-correct-SDK-path-and-version.patch
     - 0003-Don-t-enable-debug-info-for-all-builds.patch
-    - 0004-Use-custom-function-for-python_header-checking-on-Da.patch
 
 build:
   number: 0
@@ -69,6 +68,7 @@ requirements:
     - setuptools
     - xz  # [not win]
     - zlib  # [not win]
+    - pathlib2
   run:
     - python
     - backports.lzma  # [osx]
@@ -93,6 +93,7 @@ requirements:
     - xz  # [not win]
     - zlib  # [not win]
     - pypubsub  # [py3k]
+    - pathlib2
 
 test:
   imports:
