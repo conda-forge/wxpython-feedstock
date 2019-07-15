@@ -14,7 +14,7 @@ source:
     - 0003-Don-t-enable-debug-info-for-all-builds.patch
 
 build:
-  number: 0
+  number: 1
   osx_is_app: True  # [osx]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"  # [win]
   missing_dso_whitelist:                                           # [osx]
