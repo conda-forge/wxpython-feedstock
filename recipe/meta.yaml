@@ -1,4 +1,4 @@
-{% set version = "4.0.6" %}
+{% set version = "4.0.7.post1" %}
 
 package:
   name: wxpython
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha256: 35cc8ae9dd5246e2c9861bb796026bbcb9fb083e4d49650f776622171ecdab37
+  sha256: da43eaa2eea32c34a52531331b0a69bd791c237803a7c5df451509624766f7ca
   patches:
     - build.py.patch  # Make sure windows builds dont try to use msgfmt.
     - 0001-MacOSX-Use-libc-not-libstdc.patch
@@ -14,7 +14,7 @@ source:
     - 0003-Don-t-enable-debug-info-for-all-builds.patch
 
 build:
-  number: 1
+  number: 0
   osx_is_app: True  # [osx]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"  # [win]
   missing_dso_whitelist:                                           # [osx]
