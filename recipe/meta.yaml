@@ -1,4 +1,4 @@
-{% set version = "4.0.7" %}
+{% set version = "4.0.7.post1" %}
 
 package:
   name: wxpython
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha256: 3be608bfdede3063678cc703453850ab0a018b82bafd5ee057302250b18f0233
+  sha256: da43eaa2eea32c34a52531331b0a69bd791c237803a7c5df451509624766f7ca
   patches:
     - build.py.patch  # Make sure windows builds dont try to use msgfmt.
     - 0001-MacOSX-Use-libc-not-libstdc.patch
