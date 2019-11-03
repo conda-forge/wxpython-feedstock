@@ -25,7 +25,7 @@ gstreamer:
 jpeg:
 - '9'
 libpng:
-- 1.6.35
+- '1.6'
 libxml2:
 - '2.9'
 pango:
