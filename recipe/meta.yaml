@@ -1,4 +1,4 @@
-{% set version = "4.0.6" %}
+{% set version = "4.0.7.post2" %}
 
 package:
   name: wxpython
@@ -6,16 +6,17 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha256: 35cc8ae9dd5246e2c9861bb796026bbcb9fb083e4d49650f776622171ecdab37
+  sha256: 5a229e695b64f9864d30a5315e0c1e4ff5e02effede0a07f16e8d856737a0c4e
   patches:
-    - build.py.patch  # Make sure windows builds dont try to use msgfmt.
-    - 0001-MacOSX-Use-libc-not-libstdc.patch
-    - 0002-MacOSX-Specify-correct-SDK-path-and-version.patch
-    - 0003-Don-t-enable-debug-info-for-all-builds.patch
+    - patches/build.py.patch  # Make sure windows builds don't try to use msgfmt.
+    - patches/0001-MacOSX-Use-libc-not-libstdc.patch
+    - patches/0002-MacOSX-Specify-correct-SDK-path-and-version.patch
+    - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
 
 build:
-  number: 1
+  number: 0
   osx_is_app: True  # [osx]
+  skip: True  # [win and vc<14]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"  # [win]
   missing_dso_whitelist:                                           # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
