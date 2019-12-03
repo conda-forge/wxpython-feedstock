@@ -8,7 +8,7 @@ source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
   sha256: 5a229e695b64f9864d30a5315e0c1e4ff5e02effede0a07f16e8d856737a0c4e
   patches:
-    - build.py.patch  # Make sure windows builds don't try to use msgfmt.
+    - patches/build.py.patch  # Make sure windows builds don't try to use msgfmt.
     - patches/0001-MacOSX-Use-libc-not-libstdc.patch
     - patches/0002-MacOSX-Specify-correct-SDK-path-and-version.patch
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
