@@ -17,7 +17,6 @@ build:
   number: 1
   osx_is_app: True  # [osx]
   skip: True  # [(win and vc<14) or (osx and py<37)]
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"  # [win]
   missing_dso_whitelist:                                           # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
 
