@@ -1,5 +1,6 @@
 #!/bin/bash
 
+declare -a PLATFORM_BUILD_FLAGS
 if [[ $(uname) == Darwin ]]; then
   # there apparently is a c++ header file being processed as c
   # this is supposed to help against the error "'type_traits' file not found"
@@ -22,12 +23,6 @@ if [[ $(uname) == Darwin ]]; then
   # linking stage, which leads to linking libstdc++ instead of libc++
   export LDFLAGS="$LDFLAGS -stdlib=libc++"
 
-  # build documentation, etg and sip files before the real build starts
-  # required for sip wrappings to be generated
-  # we would only need this if it's a checkout, but we're using a snapshot which includes generated files
-  # https://groups.google.com/d/msg/wxpython-dev/klFi8Ls7Ss8/RitVSbzt-GgJ
-  # $PYTHON build.py dox etg --nodoc sip
-  $PYTHON -m pip install . --no-deps --ignore-installed -vvv
 elif [[ $(uname) == Linux ]]; then
   export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include/GL -I${PREFIX}/include"
 
@@ -38,6 +33,9 @@ elif [[ $(uname) == Linux ]]; then
     export LD_LIBRARY_PATH="${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64"
   fi
 
-  $PYTHON build.py build_wx install_wx --gtk2 --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT
-  $PYTHON build.py build_py install_py --gtk2 --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT
+  PLATFORM_BUILD_FLAGS+=(--gtk2 --no_magic)
+
 fi
+
+$PYTHON build.py build_wx install_wx "${PLATFORM_BUILD_FLAGS[@]}" --prefix=$PREFIX --jobs=$CPU_COUNT
+$PYTHON build.py build_py install_py "${PLATFORM_BUILD_FLAGS[@]}" --prefix=$PREFIX --jobs=$CPU_COUNT
