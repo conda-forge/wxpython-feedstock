@@ -42,3 +42,10 @@ jobs:
     displayName: Run docker build
     env:
       BINSTAR_TOKEN: $(BINSTAR_TOKEN)
+  - script: |
+        set -x
+        ls
+    displayName: List Default Working Dir
+
+  - publish: build_artifacts
+    artifact: CondaBldDir

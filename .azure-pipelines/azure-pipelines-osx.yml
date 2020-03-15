@@ -83,3 +83,5 @@ jobs:
     env:
       BINSTAR_TOKEN: $(BINSTAR_TOKEN)
     condition: and(succeeded(), not(eq(variables['UPLOAD_PACKAGES'], 'False')))
+  - publish: /usr/local/miniconda/conda-bld
+    artifact: CondaBldDir
