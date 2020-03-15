@@ -48,4 +48,4 @@ jobs:
     displayName: List Default Working Dir
 
   - publish: build_artifacts
-    artifact: CondaBldDir
+    artifact: CondaBldDir_$(CONFIG)

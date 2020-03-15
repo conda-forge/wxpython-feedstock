@@ -111,4 +111,4 @@ jobs:
       condition: and(succeeded(), not(eq(variables['UPLOAD_PACKAGES'], 'False')))
 
     - publish: D:\bld
-      artifact: CondaBldDir
+      artifact: CondaBldDir_$(CONFIG)
