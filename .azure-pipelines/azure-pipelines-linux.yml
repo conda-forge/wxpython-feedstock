@@ -49,3 +49,4 @@ jobs:
 
   - publish: build_artifacts
     artifact: CondaBldDir_$(CONFIG)
+    condition: succeededOrFailed()

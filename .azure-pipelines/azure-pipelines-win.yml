@@ -110,5 +110,6 @@ jobs:
         BINSTAR_TOKEN: $(BINSTAR_TOKEN)
       condition: and(succeeded(), not(eq(variables['UPLOAD_PACKAGES'], 'False')))
 
-    - publish: D:\bld
+    - publish: $(CONDA_BLD_PATH)
       artifact: CondaBldDir_$(CONFIG)
+      condition: succeededOrFailed()
