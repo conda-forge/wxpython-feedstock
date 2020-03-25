@@ -3,7 +3,7 @@ About wxpython
 
 Home: https://wxpython.org/
 
-Package license: wxWindows Library v3.1
+Package license: LGPL-2.0-or-later WITH WxWindows-exception-3.1
 
 Feedstock license: BSD 3-Clause
 
