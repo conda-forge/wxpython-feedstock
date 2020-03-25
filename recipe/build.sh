@@ -37,5 +37,10 @@ elif [[ $(uname) == Linux ]]; then
 
 fi
 
-$PYTHON build.py build_wx install_wx "${PLATFORM_BUILD_FLAGS[@]}" --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT
-$PYTHON build.py build_py install_py "${PLATFORM_BUILD_FLAGS[@]}" --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT
+env | sort
+
+$PYTHON build.py build_wx install_wx "${PLATFORM_BUILD_FLAGS[@]}" --verbose --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT
+# on macOS --no_magic isn't enough, we need to make build.py use wx-config to find
+# the libraries in ${PREFIX}/lib otherwise they end up being linked in the wxpython
+# .so files as hardcoded paths into the wxwidgets build directory
+$PYTHON build.py build_py install_py "${PLATFORM_BUILD_FLAGS[@]}" --verbose --use_syswx --prefix=$PREFIX --jobs=$CPU_COUNT
