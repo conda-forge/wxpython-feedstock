@@ -1,7 +1,6 @@
 setlocal EnableDelayedExpansion
 
-%PYTHON% build.py --verbose --no_magic --jobs=%CPU_COUNT% --prefix=%PREFIX% build_wx install_wx
+"%PYTHON%" build.py build_wx install_wx --no_magic --prefix="%PREFIX%" --jobs="%CPU_COUNT%"
 if errorlevel 1 exit 1
-
-%PYTHON% build.py --verbose --use_syswx --jobs=%CPU_COUNT% --prefix=%PREFIX% build_py install_py
+"%PYTHON%" build.py build_py install_py --no_magic --prefix="%PREFIX%" --jobs="%CPU_COUNT%"
 if errorlevel 1 exit 1
