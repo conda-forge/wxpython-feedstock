@@ -101,21 +101,6 @@ test:
     - wx
     - wx.lib.pubsub  # [py3k]
 
-outputs:
-  - name: wxpython
-  - name: wxpython-wxwidgets
-    script: install_wxwidgets.bat   # [win]
-    requirements:
-      run:
-        - wxpython
-    test:
-      commands:
-        - if not exist %LIBRARY_INC%\\wx\\setup.h exit 1                # [win]
-    about:
-      summary: wxWindows headers and libraries used in wxpython package
-      license: wxWindows Library v3.1
-      license_family: LGPL
-
 about:
   home: https://wxpython.org/
   license: wxWindows Library v3.1
