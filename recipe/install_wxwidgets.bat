@@ -33,8 +33,6 @@ copy %wx_lib_path%\*.lib %LIBRARY_LIB%
 if errorlevel 1 exit 1
 copy %wx_lib_path%\*.dll %LIBRARY_BIN%
 if errorlevel 1 exit 1
-copy %wx_lib_path%\*.pdb %LIBRARY_LIB%
-if errorlevel 1 exit 1
 
 
 REM copy .h files to LIBRARY_INC
