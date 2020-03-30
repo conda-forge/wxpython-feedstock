@@ -24,17 +24,6 @@ index e399fe975..78c4a5d71 100755
          # Turn off magic if using the system wx
          options.no_magic = True
  
-@@ -1713,10 +1709,6 @@ def cmd_install(options, args):
- 
- def cmd_install_wx(options, args):
-     cmdTimer = CommandTimer('install_wx')
--    if isWindows:
--        msg('No wxWidgets installation required on Windows')
--        return
--
-     if options.use_syswx:
-         msg("use_syswx option specified, skipping wxWidgets install")
-         return
 -- 
 2.25.0
 
