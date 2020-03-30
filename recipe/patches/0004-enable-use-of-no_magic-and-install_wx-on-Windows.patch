@@ -1,0 +1,29 @@
+From 1500d8088abd430dc38f35b770d513bb940fa72c Mon Sep 17 00:00:00 2001
+From: Tim Snyder <snyder.tim@gmail.com>
+Date: Tue, 24 Mar 2020 12:09:51 -0500
+Subject: [PATCH] enable use of --no_magic and install_wx on Windows
+
+---
+ build.py | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+diff --git a/build.py b/build.py
+index e399fe975..78c4a5d71 100755
+--- a/build.py
++++ b/build.py
+@@ -481,11 +481,7 @@ def parseArgs(args):
+     parser = makeOptionParser()
+     options, args = parser.parse_args(args)
+ 
+-    if isWindows:
+-        # We always use magic on Windows
+-        options.no_magic = False
+-        options.use_syswx = False
+-    elif options.use_syswx:
++    if options.use_syswx:
+         # Turn off magic if using the system wx
+         options.no_magic = True
+ 
+-- 
+2.25.0
+
