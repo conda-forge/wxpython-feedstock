@@ -15,7 +15,7 @@ source:
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
 
 build:
-  number: 3
+  number: 4
   osx_is_app: True  # [osx]
   skip: True  # [(win and vc<14) or (osx and py<37)]
   missing_dso_whitelist:                                           # [osx]
@@ -26,7 +26,6 @@ requirements:
     - pkg-config                         # [not win]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ cdt('gtk2-devel') }}            # [linux]
     - {{ cdt('libpng-devel') }}          # [linux]
     - {{ cdt('libxrender-devel') }}      # [linux]
     - {{ cdt('mesa-libgl-devel') }}      # [linux]
@@ -57,7 +56,7 @@ requirements:
     - glib  # [linux]
     - gst-plugins-base  # [linux]
     - gstreamer  # [linux]
-    - gtk2  # [linux]
+    - gtk3  # [linux]
     - jpeg  # [not win]
     - libglu  # [linux]
     - libiconv  # [osx]
@@ -79,7 +78,7 @@ requirements:
     - glib  # [linux]
     - gst-plugins-base  # [linux]
     - gstreamer  # [linux]
-    - gtk2  # [linux]
+    - gtk3  # [linux]
     - jpeg  # [not win]
     - libglu  # [linux]
     - libiconv  # [osx]
