@@ -33,7 +33,8 @@ elif [[ $(uname) == Linux ]]; then
     export LD_LIBRARY_PATH="${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64"
   fi
 
-  PLATFORM_BUILD_FLAGS+=(--gtk3)
+  # PLATFORM_BUILD_FLAGS+=(--gtk3)
+  PLATFORM_BUILD_FLAGS+=(--with-gtk=3)
 
 fi
 
