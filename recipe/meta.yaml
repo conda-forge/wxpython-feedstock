@@ -1,4 +1,4 @@
-{% set version = "4.0.7.post2" %}
+{% set version = "4.1.0" %}
 
 package:
   name: wxpython
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha256: 5a229e695b64f9864d30a5315e0c1e4ff5e02effede0a07f16e8d856737a0c4e
+  sha256: 2e2475cb755ac8d93d2f9335c39c060b4d17ecb5d4e0e86626d1e2834b64a48b
   patches:
     - patches/build.py.patch  # Make sure windows builds don't try to use msgfmt.
     - patches/0001-MacOSX-Use-libc-not-libstdc.patch
@@ -15,10 +15,10 @@ source:
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
 
 build:
-  number: 3
-  osx_is_app: True  # [osx]
-  skip: True  # [(win and vc<14) or (osx and py<37)]
-  missing_dso_whitelist:                                           # [osx]
+  number: 0
+  osx_is_app: true  # [osx]
+  skip: true  # [(win and vc<14) or (osx and py<37)]
+  missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
 
 requirements:
