@@ -1,4 +1,9 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/png
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/expat/expat/conftools
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/tiff/config
 
 declare -a PLATFORM_BUILD_FLAGS
 if [[ $(uname) == Darwin ]]; then
