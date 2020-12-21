@@ -1,7 +1,7 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '7'
+- '9'
 cairo:
 - '1.16'
 cdt_name:
@@ -13,9 +13,9 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '7'
+- '9'
 docker_image:
-- condaforge/linux-anvil-comp7
+- quay.io/condaforge/linux-anvil-comp7
 expat:
 - '2.2'
 glib:
@@ -23,7 +23,7 @@ glib:
 gst_plugins_base:
 - 1.14.4
 gstreamer:
-- 1.14.4
+- '1.18'
 jpeg:
 - '9'
 libpng:
