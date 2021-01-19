@@ -35,6 +35,9 @@ elif [[ $(uname) == Linux ]]; then
 
   PLATFORM_BUILD_FLAGS+=(--gtk2)
 
+  # Force shared linkage to Python, avoids issues with lto-wrapper and saves size.
+  rm -rf ${PREFIX}/lib/python${PY_VER}/config-${PY_VER}m-x86_64-linux-gnu/libpython${PY_VER}m.a
+  rm -rf ${PREFIX}/lib/libpython${PY_VER}m.a
 fi
 
 env | sort
