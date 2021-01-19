@@ -13,9 +13,10 @@ source:
     - patches/0002-MacOSX-Specify-correct-SDK-path-and-version.patch
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
+    - patches/hard-define-win.patch  # [win]
 
 build:
-  number: 0
+  number: 1
   osx_is_app: true  # [osx]
   skip: true  # [(win and vc<14) or (osx and py<37)]
   missing_dso_whitelist:   # [osx]

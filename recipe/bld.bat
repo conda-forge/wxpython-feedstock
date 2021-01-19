@@ -1,3 +1,4 @@
+@echo on
 setlocal EnableDelayedExpansion
 
 "%PYTHON%" build.py build_wx --no_magic --prefix="%PREFIX%" --jobs="%CPU_COUNT%"
