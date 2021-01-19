@@ -1,0 +1,18 @@
+--- ext/wxWidgets/include/wx/msw/wx.rc.orig	2021-01-19 16:40:34.000000000 +0100
++++ ext/wxWidgets/include/wx/msw/wx.rc	2021-01-19 16:40:56.000000000 +0100
+@@ -116,13 +116,8 @@
+ #elif defined(WX_CPU_ARM64)
+     #define wxMANIFEST_CPU arm64
+ #else
+-// Notice that if the manifest is included, WX_CPU_XXX constant corresponding
+-// to the architecture we're compiling for must be defined. This can be done
+-// either manually in your make/project file or by configuring the resource
+-// compiler paths to search in $(WXWIN)/lib/$(COMPILER_PREFIX)_lib/mswu[d]
+-// directory for its include files, as wx/msw/rcdefs.h file in this directory
+-// is generated during wxWidgets build and contains the correct definition.
+-    #error "One of WX_CPU_XXX constants must be defined. See comment above."
++    #define WX_CPU_AMD64
++    #define wxMANIFEST_CPU amd64
+ #endif
+ 
+ #if !defined(wxUSE_DPI_AWARE_MANIFEST) || wxUSE_DPI_AWARE_MANIFEST == 0
