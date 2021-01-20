@@ -1,4 +1,4 @@
-{% set version = "4.1.0" %}
+{% set version = "4.1.1" %}
 
 package:
   name: wxpython
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha256: 2e2475cb755ac8d93d2f9335c39c060b4d17ecb5d4e0e86626d1e2834b64a48b
+  sha256: 00e5e3180ac7f2852f342ad341d57c44e7e4326de0b550b9a5c4a8361b6c3528
   patches:
     - patches/build.py.patch  # Make sure windows builds don't try to use msgfmt.
     - patches/0001-MacOSX-Use-libc-not-libstdc.patch
@@ -16,7 +16,7 @@ source:
     - patches/hard-define-win.patch  # [win]
 
 build:
-  number: 1
+  number: 0
   osx_is_app: true  # [osx]
   skip: true  # [(win and vc<14) or (osx and py<37)]
   missing_dso_whitelist:   # [osx]
