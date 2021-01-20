@@ -23,7 +23,7 @@ glib:
 gst_plugins_base:
 - 1.14.4
 gstreamer:
-- '1.18'
+- 1.14.4
 jpeg:
 - '9'
 libpng:
