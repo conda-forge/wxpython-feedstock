@@ -19,11 +19,11 @@ docker_image:
 expat:
 - '2.2'
 glib:
-- '2.66'
+- '2'
 gst_plugins_base:
-- 1.14.4
+- '1.18'
 gstreamer:
-- 1.14.4
+- '1.18'
 jpeg:
 - '9'
 libpng:
