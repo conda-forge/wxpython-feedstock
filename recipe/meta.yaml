@@ -16,7 +16,7 @@ source:
     - patches/hard-define-win.patch  # [win]
 
 build:
-  number: 1
+  number: 2
   osx_is_app: true  # [osx]
   skip: true  # [(win and vc<14) or (osx and py<37)]
   missing_dso_whitelist:   # [osx]
@@ -54,7 +54,6 @@ requirements:
   host:
     - python
     - pip
-    - backports.lzma  # [osx]
     - cairo  # [linux]
     - expat  # [not win]
     - gettext  # [not win]
@@ -76,7 +75,6 @@ requirements:
     - pathlib2
   run:
     - python
-    - backports.lzma  # [osx]
     - cairo  # [linux]
     - expat  # [not win]
     - gettext  # [not win]
