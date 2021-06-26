@@ -17,7 +17,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-comp7
 expat:
-- '2.2'
+- '2'
 glib:
 - '2'
 gst_plugins_base:
@@ -34,8 +34,6 @@ pango:
 - '1.48'
 pin_run_as_build:
   cairo:
-    max_pin: x.x
-  expat:
     max_pin: x.x
   jpeg:
     max_pin: x
