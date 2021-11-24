@@ -15,7 +15,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '11'
 expat:
-- '2.2'
+- '2'
 jpeg:
 - '9'
 libiconv:
@@ -25,8 +25,6 @@ libpng:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 pin_run_as_build:
-  expat:
-    max_pin: x.x
   jpeg:
     max_pin: x
   libiconv:
