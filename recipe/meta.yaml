@@ -27,7 +27,8 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - pkg-config                         # [not win]
-    - gnuconfig  # [unix]
+    - gnuconfig                          # [unix]
+    - make                               # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ cdt('gtk2-devel') }}            # [linux]
