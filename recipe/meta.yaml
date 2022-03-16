@@ -14,9 +14,11 @@ source:
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
     - patches/hard-define-win.patch  # [win]
+    # https://github.com/wxWidgets/wxWidgets/pull/2354
+    - patches/2354-OS_X-Add-toll-free-bridging-info.patch
 
 build:
-  number: 3
+  number: 4
   osx_is_app: true  # [osx]
   skip: true  # [(win and vc<14) or (osx and py<37)]
   missing_dso_whitelist:   # [osx]
@@ -27,7 +29,8 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - pkg-config                         # [not win]
-    - gnuconfig  # [unix]
+    - gnuconfig                          # [unix]
+    - make                               # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ cdt('gtk2-devel') }}            # [linux]
