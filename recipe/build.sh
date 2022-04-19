@@ -47,6 +47,15 @@ fi
 
 env | sort
 
+# Disable code signing during the building stage on osx-arm64
+# The code signing in cctools-port is causing the symbolically linked
+# libraries in $PREFIX/lib to become files which causes issues at runtime
+# https://github.com/conda-forge/wxpython-feedstock/issues/74
+# The environment variable disables the step (defined in cctools-port/cctools/include/stuff/port.h)
+# The libraries are still signed during the packaging stage
+if [[ "$CC" == *"arm64"* ]]; then
+  export NO_CODESIGN=1
+fi
 $PYTHON build.py build_wx install_wx "${PLATFORM_BUILD_FLAGS[@]}" --verbose --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT
 # on macOS --no_magic isn't enough, we need to make build.py use wx-config to find
 # the libraries in ${PREFIX}/lib otherwise they end up being linked in the wxpython
