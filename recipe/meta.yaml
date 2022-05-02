@@ -102,6 +102,7 @@ requirements:
     - pypubsub  # [py3k]
     - pathlib2
     - numpy
+    - pillow 
 
 test:
   imports:
