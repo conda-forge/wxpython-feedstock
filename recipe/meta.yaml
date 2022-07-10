@@ -16,11 +16,13 @@ source:
     - patches/hard-define-win.patch  # [win]
     # https://github.com/wxWidgets/wxWidgets/pull/2354
     - patches/2354-OS_X-Add-toll-free-bridging-info.patch
+    # New generation
+    - patches/do_not_copy_wxwidgets_license.patch
 
 build:
   number: 7
   osx_is_app: true  # [osx]
-  skip: true  # [(win and vc<14) or (osx and py<37)]
+  skip: true   # [not (linux64 and py==39)]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
 
@@ -49,60 +51,45 @@ requirements:
     - {{ cdt('libxinerama') }}           # [linux]
     - {{ cdt('libxi') }}                 # [linux]
     - {{ cdt('libxcb') }}                # [linux]
-    - {{ cdt('libxcursor') }}            # [linux]
+    - {{ cdt('libxcursor-devel') }}      # [linux]
     - {{ cdt('libxcomposite') }}         # [linux]
     - {{ cdt('libxdamage-devel') }}      # [linux]
     - {{ cdt('webkitgtk-devel') }}       # [linux]
     - {{ cdt('libsoup-devel') }}         # [linux]
+    - {{ cdt('libxrandr-devel') }}       # [linux]
   host:
+    - wxwidgets
     - python
     - pip
-    - cairo  # [linux]
     - cython ==0.29.24
-    - expat  # [not win]
     - gettext  # [not win]
-    - glib  # [linux]
-    - gst-plugins-base  # [linux]
-    - gstreamer  # [linux]
-    - gtk2  # [linux]
-    - jpeg  # [not win]
-    - libglu  # [linux]
-    - libiconv  # [osx]
-    - libpng  # [not win]
-    - libxml2  # [linux]
-    - pango  # [linux]
     - pthread-stubs
     - requests
     - setuptools
-    - xz  # [not win]
-    - zlib  # [not win]
     - pathlib2
+    - glib                # [linux]
+    - xorg-libx11         # [linux]
+    - xorg-libsm          # [linux]
+    - xorg-libxi          # [linux]
+    - xorg-libxcursor     # [linux]
+    - xorg-libxcomposite  # [linux]
+    - xorg-libxinerama    # [linux]
   run:
     - python
-    - cairo  # [linux]
-    - expat  # [not win]
     - gettext  # [not win]
-    - glib  # [linux]
-    - gst-plugins-base  # [linux]
-    - gstreamer  # [linux]
-    - gtk2  # [linux]
-    - jpeg  # [not win]
-    - libglu  # [linux]
-    - libiconv  # [osx]
-    - libpng  # [not win]
-    - libxml2  # [linux]
-    - pango  # [linux]
     - pthread-stubs
     - python.app  # [osx]
     - requests
     - setuptools
     - six
-    - xz  # [not win]
-    - zlib  # [not win]
     - pypubsub  # [py3k]
     - pathlib2
     - numpy
-    - pillow 
+    - pillow
+    - xorg-libx11  # [linux]
+    - xorg-libsm   # [linux]
+    - xorg-libxcursor  # [linux]
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 
 test:
   imports:
