@@ -16,6 +16,8 @@ source:
     - patches/hard-define-win.patch  # [win]
     # https://github.com/wxWidgets/wxWidgets/pull/2354
     - patches/2354-OS_X-Add-toll-free-bridging-info.patch
+    # New generation
+    - patches/do_not_copy_wxwidgets_license.patch
 
 build:
   number: 7
@@ -49,11 +51,12 @@ requirements:
     - {{ cdt('libxinerama') }}           # [linux]
     - {{ cdt('libxi') }}                 # [linux]
     - {{ cdt('libxcb') }}                # [linux]
-    - {{ cdt('libxcursor') }}            # [linux]
+    - {{ cdt('libxcursor-devel') }}      # [linux]
     - {{ cdt('libxcomposite') }}         # [linux]
     - {{ cdt('libxdamage-devel') }}      # [linux]
     - {{ cdt('webkitgtk-devel') }}       # [linux]
     - {{ cdt('libsoup-devel') }}         # [linux]
+    - {{ cdt('libxrandr-devel') }}       # [linux]
   host:
     - wxwidgets
     - python
@@ -64,6 +67,13 @@ requirements:
     - requests
     - setuptools
     - pathlib2
+    - glib                # [linux]
+    - xorg-libx11         # [linux]
+    - xorg-libsm          # [linux]
+    - xorg-libxi          # [linux]
+    - xorg-libxcursor     # [linux]
+    - xorg-libxcomposite  # [linux]
+    - xorg-libxinerama    # [linux]
   run:
     - python
     - gettext  # [not win]
@@ -76,6 +86,10 @@ requirements:
     - pathlib2
     - numpy
     - pillow
+    - xorg-libx11  # [linux]
+    - xorg-libsm   # [linux]
+    - xorg-libxcursor  # [linux]
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 
 test:
   imports:

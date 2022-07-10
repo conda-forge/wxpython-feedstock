@@ -1,0 +1,17 @@
+diff --git a/buildtools/config.py b/buildtools/config.py
+index 4482ba9d..c4429376 100644
+--- a/buildtools/config.py
++++ b/buildtools/config.py
+@@ -1051,9 +1051,9 @@ def updateLicenseFiles(cfg):
+ 
+     # Copy the license files from wxWidgets
+     mkpath('license')
+-    for filename in ['preamble.txt', 'licence.txt', 'lgpl.txt', 'gpl.txt']:
+-        copy_file(opj(cfg.WXDIR, 'docs', filename), opj('license',filename),
+-                      update=1, verbose=1)
++    # for filename in ['preamble.txt', 'licence.txt', 'lgpl.txt', 'gpl.txt']:
++    #     copy_file(opj(cfg.WXDIR, 'docs', filename), opj('license',filename),
++    #                   update=1, verbose=1)
+ 
+     # Get the sip license too
+     copy_file(opj('sip', 'siplib', 'LICENSE'), opj('license', 'sip-license.txt'),
