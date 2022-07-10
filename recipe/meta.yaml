@@ -21,10 +21,8 @@ source:
 
 build:
   number: 7
-  skip: true   # [not linux]
-  skip: true   # [py!=39]
   osx_is_app: true  # [osx]
-  skip: true  # [(osx and py<37)]
+  skip: true   # [not (linux64 and py==39)]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
 
