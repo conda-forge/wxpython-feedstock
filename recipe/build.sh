@@ -1,10 +1,4 @@
 #!/bin/bash
-# Get an updated config.sub and config.guess
-cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets
-cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/tiff/config
-cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/png
-cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/expat/expat/conftools
-
 declare -a PLATFORM_BUILD_FLAGS
 if [[ $(uname) == Darwin ]]; then
   # there apparently is a c++ header file being processed as c
@@ -56,7 +50,6 @@ env | sort
 if [[ "$CC" == *"arm64"* ]]; then
   export NO_CODESIGN=1
 fi
-$PYTHON build.py build_wx install_wx "${PLATFORM_BUILD_FLAGS[@]}" --verbose --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT
 # on macOS --no_magic isn't enough, we need to make build.py use wx-config to find
 # the libraries in ${PREFIX}/lib otherwise they end up being linked in the wxpython
 # .so files as hardcoded paths into the wxwidgets build directory

@@ -20,7 +20,7 @@ source:
 build:
   number: 7
   osx_is_app: true  # [osx]
-  skip: true  # [(win and vc<14) or (osx and py<37)]
+  skip: true  # [(osx and py<37)]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
 
@@ -55,54 +55,27 @@ requirements:
     - {{ cdt('webkitgtk-devel') }}       # [linux]
     - {{ cdt('libsoup-devel') }}         # [linux]
   host:
+    - wxwidgets
     - python
     - pip
-    - cairo  # [linux]
     - cython ==0.29.24
-    - expat  # [not win]
     - gettext  # [not win]
-    - glib  # [linux]
-    - gst-plugins-base  # [linux]
-    - gstreamer  # [linux]
-    - gtk2  # [linux]
-    - jpeg  # [not win]
-    - libglu  # [linux]
-    - libiconv  # [osx]
-    - libpng  # [not win]
-    - libxml2  # [linux]
-    - pango  # [linux]
     - pthread-stubs
     - requests
     - setuptools
-    - xz  # [not win]
-    - zlib  # [not win]
     - pathlib2
   run:
     - python
-    - cairo  # [linux]
-    - expat  # [not win]
     - gettext  # [not win]
-    - glib  # [linux]
-    - gst-plugins-base  # [linux]
-    - gstreamer  # [linux]
-    - gtk2  # [linux]
-    - jpeg  # [not win]
-    - libglu  # [linux]
-    - libiconv  # [osx]
-    - libpng  # [not win]
-    - libxml2  # [linux]
-    - pango  # [linux]
     - pthread-stubs
     - python.app  # [osx]
     - requests
     - setuptools
     - six
-    - xz  # [not win]
-    - zlib  # [not win]
     - pypubsub  # [py3k]
     - pathlib2
     - numpy
-    - pillow 
+    - pillow
 
 test:
   imports:
