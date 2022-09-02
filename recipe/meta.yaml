@@ -9,7 +9,6 @@ source:
   sha256: 663cebc4509d7e5d113518865fe274f77f95434c5d57bc386ed58d65ceed86c7
   patches:
     - patches/build.py.patch  # Make sure windows builds don't try to use msgfmt.
-    - patches/0001-MacOSX-Use-libc-not-libstdc.patch
     - patches/0002-MacOSX-Specify-correct-SDK-path-and-version.patch
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
