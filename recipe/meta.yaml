@@ -73,7 +73,7 @@ requirements:
     - xz  # [not win]
     - zlib  # [not win]
     - pathlib2
-    - attrdict
+    - attrdict3
   run:
     - python
     - cairo  # [linux]
