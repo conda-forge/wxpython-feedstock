@@ -3,7 +3,7 @@ c_compiler:
 c_compiler_version:
 - '10'
 cairo:
-- '1.16'
+- '1'
 cdt_name:
 - cos6
 channel_sources:
@@ -23,39 +23,25 @@ glib:
 gst_plugins_base:
 - '1.20'
 gstreamer:
-- '1.20'
+- '1.21'
 jpeg:
 - '9'
 libpng:
 - '1.6'
 libxml2:
-- '2.9'
+- '2.10'
 pango:
 - '1.50'
 pin_run_as_build:
-  cairo:
-    max_pin: x.x
-  jpeg:
-    max_pin: x
-  libpng:
-    max_pin: x.x
-  libxml2:
-    max_pin: x.x
-  pango:
-    max_pin: x.x
   python:
     min_pin: x.x
-    max_pin: x.x
-  xz:
-    max_pin: x.x
-  zlib:
     max_pin: x.x
 python:
 - 3.8.* *_cpython
 target_platform:
 - linux-64
 xz:
-- '5.2'
+- '5'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
