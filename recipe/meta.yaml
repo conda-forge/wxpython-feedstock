@@ -18,7 +18,7 @@ source:
     - patches/2354-OS_X-Add-toll-free-bridging-info.patch
 
 build:
-  number: 8
+  number: 9
   osx_is_app: true  # [osx]
   skip: true  # [(win and vc<14) or (osx and py<37)]
   missing_dso_whitelist:   # [osx]
