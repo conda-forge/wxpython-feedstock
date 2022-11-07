@@ -19,31 +19,21 @@ expat:
 jpeg:
 - '9'
 libiconv:
-- '1.16'
+- '1'
 libpng:
 - '1.6'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 pin_run_as_build:
-  jpeg:
-    max_pin: x
-  libiconv:
-    max_pin: x.x
-  libpng:
-    max_pin: x.x
   python:
     min_pin: x.x
-    max_pin: x.x
-  xz:
-    max_pin: x.x
-  zlib:
     max_pin: x.x
 python:
 - 3.8.* *_cpython
 target_platform:
 - osx-64
 xz:
-- '5.2'
+- '5'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
