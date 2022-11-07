@@ -28,6 +28,9 @@ if [[ $(uname) == Darwin ]]; then
   # linking stage, which leads to linking libstdc++ instead of libc++
   export LDFLAGS="$LDFLAGS -stdlib=libc++"
 
+  # Without this, wx tries to build a universal binary by default
+  PLATFORM_BUILD_FLAGS+=(--mac_arch="$OSX_ARCH")
+
 elif [[ $(uname) == Linux ]]; then
   export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include/GL -I${PREFIX}/include"
 
@@ -56,6 +59,7 @@ env | sort
 if [[ "$CC" == *"arm64"* ]]; then
   export NO_CODESIGN=1
 fi
+
 if ! $PYTHON build.py build_wx install_wx "${PLATFORM_BUILD_FLAGS[@]}" --verbose --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT; then
   echo "Error: Failed to build. Log:"
   echo "============================"
