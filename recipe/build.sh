@@ -56,7 +56,13 @@ env | sort
 if [[ "$CC" == *"arm64"* ]]; then
   export NO_CODESIGN=1
 fi
-$PYTHON build.py build_wx install_wx "${PLATFORM_BUILD_FLAGS[@]}" --verbose --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT
+if ! $PYTHON build.py build_wx install_wx "${PLATFORM_BUILD_FLAGS[@]}" --verbose --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT; then
+  echo "Error: Failed to build. Log:"
+  echo "============================"
+  cat ./build/wxbld/config.log
+  echo "============================"
+  exit 1
+fi
 # on macOS --no_magic isn't enough, we need to make build.py use wx-config to find
 # the libraries in ${PREFIX}/lib otherwise they end up being linked in the wxpython
 # .so files as hardcoded paths into the wxwidgets build directory
