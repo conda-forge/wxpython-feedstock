@@ -1,4 +1,4 @@
-{% set version = "4.1.1" %}
+{% set version = "4.2.0" %}
 
 package:
   name: wxpython
@@ -6,10 +6,9 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha256: 00e5e3180ac7f2852f342ad341d57c44e7e4326de0b550b9a5c4a8361b6c3528
+  sha256: 663cebc4509d7e5d113518865fe274f77f95434c5d57bc386ed58d65ceed86c7
   patches:
     - patches/build.py.patch  # Make sure windows builds don't try to use msgfmt.
-    - patches/0001-MacOSX-Use-libc-not-libstdc.patch
     - patches/0002-MacOSX-Specify-correct-SDK-path-and-version.patch
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
@@ -18,7 +17,7 @@ source:
     - patches/2354-OS_X-Add-toll-free-bridging-info.patch
 
 build:
-  number: 9
+  number: 0
   osx_is_app: true  # [osx]
   skip: true  # [(win and vc<14) or (osx and py<37)]
   missing_dso_whitelist:   # [osx]
@@ -102,7 +101,7 @@ requirements:
     - pypubsub  # [py3k]
     - pathlib2
     - numpy
-    - pillow 
+    - pillow
 
 test:
   imports:
