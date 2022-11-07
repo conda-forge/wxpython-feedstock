@@ -54,7 +54,7 @@ requirements:
     - python
     - pip
     - cairo  # [linux]
-    - cython ==0.29.24
+    - cython
     - expat  # [not win]
     - gettext  # [not win]
     - glib  # [linux]
