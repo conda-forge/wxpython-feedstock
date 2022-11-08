@@ -28,10 +28,14 @@ jpeg:
 - '9'
 libpng:
 - '1.6'
+libtiff:
+- '4'
 libxml2:
 - '2.10'
 pango:
 - '1.50'
+pcre2:
+- '10.37'
 pin_run_as_build:
   python:
     min_pin: x.x
