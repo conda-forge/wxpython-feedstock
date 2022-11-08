@@ -28,6 +28,9 @@ if [[ $(uname) == Darwin ]]; then
   # linking stage, which leads to linking libstdc++ instead of libc++
   export LDFLAGS="$LDFLAGS -stdlib=libc++"
 
+  # Without this, wx tries to build a universal binary by default
+  PLATFORM_BUILD_FLAGS+=(--mac_arch="$OSX_ARCH")
+
 elif [[ $(uname) == Linux ]]; then
   export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include/GL -I${PREFIX}/include"
 
@@ -56,7 +59,9 @@ env | sort
 if [[ "$CC" == *"arm64"* ]]; then
   export NO_CODESIGN=1
 fi
+
 $PYTHON build.py build_wx install_wx "${PLATFORM_BUILD_FLAGS[@]}" --verbose --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT
+
 # on macOS --no_magic isn't enough, we need to make build.py use wx-config to find
 # the libraries in ${PREFIX}/lib otherwise they end up being linked in the wxpython
 # .so files as hardcoded paths into the wxwidgets build directory

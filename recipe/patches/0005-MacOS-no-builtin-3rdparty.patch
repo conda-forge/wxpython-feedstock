@@ -1,0 +1,26 @@
+--- wxPython-4.2.0.orig/buildtools/build_wxwidgets.py	2022-09-02 13:35:53.000000000 +0100
++++ wxPython-4.2.0/buildtools/build_wxwidgets.py	2022-11-08 10:48:08.000000000 +0000
+@@ -20,7 +20,7 @@
+ 
+ PY3 = sys.version_info[0] == 3
+ 
+-# builder object
++# builder object`
+ wxBuilder = None
+ 
+ # other globals
+@@ -323,10 +323,10 @@
+             print("Universal Capable: {}".format(universalCapable))
+             print("Architectures:     {}".format(arch))
+ 
+-            wxpy_configure_opts.append("--with-libjpeg=builtin")
+-            wxpy_configure_opts.append("--with-libpng=builtin")
+-            wxpy_configure_opts.append("--with-libtiff=builtin")
+-            wxpy_configure_opts.append("--with-regex=builtin")
++            wxpy_configure_opts.append("--with-libjpeg=sys")
++            wxpy_configure_opts.append("--with-libpng=sys")
++            wxpy_configure_opts.append("--with-libtiff=sys")
++            wxpy_configure_opts.append("--with-regex=sys")
+ 
+ 
+         if not options.mac_framework:
