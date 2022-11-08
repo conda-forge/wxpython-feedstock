@@ -1,0 +1,53 @@
+c_compiler:
+- gcc
+c_compiler_version:
+- '10'
+cairo:
+- '1'
+cdt_name:
+- cos6
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- gxx
+cxx_compiler_version:
+- '10'
+docker_image:
+- quay.io/condaforge/linux-anvil-cos7-x86_64
+expat:
+- '2'
+glib:
+- '2'
+gst_plugins_base:
+- '1.21'
+gstreamer:
+- '1.21'
+jpeg:
+- '9'
+libpng:
+- '1.6'
+libtiff:
+- '4'
+libxml2:
+- '2.10'
+pango:
+- '1.50'
+pcre2:
+- '10.37'
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- 3.11.* *_cpython
+target_platform:
+- linux-64
+xz:
+- '5'
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
+zlib:
+- '1.2'
