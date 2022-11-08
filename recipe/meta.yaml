@@ -53,6 +53,7 @@ requirements:
   host:
     - python
     - pip
+    - attrdict3
     - cairo  # [linux]
     - cython
     - expat  # [not win]
@@ -65,17 +66,16 @@ requirements:
     - libglu  # [linux]
     - libiconv  # [osx]
     - libpng  # [not win]
+    - libtiff  # [not win]
     - libxml2  # [linux]
     - pango  # [linux]
+    - pathlib2
+    - pcre2  # [not win]
     - pthread-stubs
     - requests
     - setuptools
     - xz  # [not win]
     - zlib  # [not win]
-    - pathlib2
-    - attrdict3
-    - pcre2  # [not win]
-    - libtiff  # [not win]
 
   run:
     - python
@@ -90,21 +90,21 @@ requirements:
     - libglu  # [linux]
     - libiconv  # [osx]
     - libpng  # [not win]
+    - libtiff  # [not win]
     - libxml2  # [linux]
+    - numpy
     - pango  # [linux]
+    - pathlib2
+    - pcre2  # [not win]
+    - pillow
     - pthread-stubs
+    - pypubsub  # [py3k]
     - python.app  # [osx]
     - requests
     - setuptools
     - six
     - xz  # [not win]
     - zlib  # [not win]
-    - pypubsub  # [py3k]
-    - pathlib2
-    - numpy
-    - pillow
-    - pcre2  # [not win]
-    - libtiff  # [not win]
 
 
 test:
