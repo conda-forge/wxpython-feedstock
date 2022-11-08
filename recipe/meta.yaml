@@ -11,6 +11,7 @@ source:
     - patches/build.py.patch  # Make sure windows builds don't try to use msgfmt.
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
+    - patches/0005-MacOS-no-builtin-3rdparty.patch
 
 build:
   number: 0
@@ -73,6 +74,9 @@ requirements:
     - zlib  # [not win]
     - pathlib2
     - attrdict3
+    - pcre2  # [not win]
+    - libtiff  # [not win]
+
   run:
     - python
     - cairo  # [linux]
@@ -99,6 +103,9 @@ requirements:
     - pathlib2
     - numpy
     - pillow
+    - pcre2  # [not win]
+    - libtiff  # [not win]
+
 
 test:
   imports:
