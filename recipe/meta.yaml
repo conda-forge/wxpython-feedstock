@@ -12,6 +12,8 @@ source:
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
     - patches/0005-MacOS-no-builtin-3rdparty.patch
+    - patches/Use-EXT_SUFFIX-when-available-to-fix-build-on-Py-3.11.patch
+
 
 build:
   number: 1
