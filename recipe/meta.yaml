@@ -55,7 +55,7 @@ requirements:
     - pip
     - attrdict3
     - cairo  # [linux]
-    - cython
+    - cython >=0.29.32
     - expat  # [not win]
     - gettext  # [not win]
     - glib  # [linux]
