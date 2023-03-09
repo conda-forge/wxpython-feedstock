@@ -1,11 +1,11 @@
-About wxpython
-==============
+About wxpython-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/wxpython-feedstock/blob/main/LICENSE.txt)
 
 Home: https://wxpython.org/
 
 Package license: LGPL-2.0-or-later WITH WxWindows-exception-3.1
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/wxpython-feedstock/blob/main/LICENSE.txt)
 
 Summary: Cross platform GUI toolkit for Python, "Phoenix" version
 
