@@ -16,7 +16,7 @@ source:
 
 
 build:
-  number: 5
+  number: 6
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
@@ -63,7 +63,7 @@ requirements:
     - gst-plugins-base {{ gstreamer }}  # [linux]
     - gstreamer                         # [linux]
     - gtk2  # [linux]
-    - jpeg  # [not win]
+    - libjpeg-turbo   # [not win]
     - libglu  # [linux]
     - libiconv  # [osx]
     - libpng  # [not win]
@@ -85,7 +85,7 @@ requirements:
     - gettext  # [not win]
     - glib  # [linux]
     - gtk2  # [linux]
-    - jpeg  # [not win]
+    - libjpeg-turbo   # [not win]
     - libglu  # [linux]
     - libiconv  # [osx]
     - libpng  # [not win]

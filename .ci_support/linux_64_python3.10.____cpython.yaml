@@ -22,8 +22,8 @@ glib:
 - '2'
 gstreamer:
 - '1.22'
-jpeg:
-- '9'
+libjpeg_turbo:
+- 2.1.5
 libpng:
 - '1.6'
 libtiff:
