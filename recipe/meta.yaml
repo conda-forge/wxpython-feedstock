@@ -1,4 +1,4 @@
-{% set version = "4.2.0" %}
+{% set version = "4.2.1" %}
 
 package:
   name: wxpython
@@ -6,17 +6,16 @@ package:
 
 source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha256: 663cebc4509d7e5d113518865fe274f77f95434c5d57bc386ed58d65ceed86c7
+  sha256: e48de211a6606bf072ec3fa778771d6b746c00b7f4b970eb58728ddf56d13d5c
   patches:
     - patches/build.py.patch  # Make sure windows builds don't try to use msgfmt.
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
     - patches/0005-MacOS-no-builtin-3rdparty.patch
-    - patches/Use-EXT_SUFFIX-when-available-to-fix-build-on-Py-3.11.patch
 
 
 build:
-  number: 7
+  number: 0
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
