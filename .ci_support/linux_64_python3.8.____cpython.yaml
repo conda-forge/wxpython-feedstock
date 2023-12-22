@@ -27,13 +27,13 @@ libjpeg_turbo:
 libpng:
 - '1.6'
 libtiff:
-- '4.5'
+- '4.6'
 libxml2:
 - '2.11'
 pango:
 - '1.50'
 pcre2:
-- '10.40'
+- '10.42'
 pin_run_as_build:
   python:
     min_pin: x.x
