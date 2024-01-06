@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '15'
+- '16'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -11,21 +11,21 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '15'
+- '16'
 expat:
 - '2'
 libiconv:
 - '1'
 libjpeg_turbo:
-- 2.1.5
+- '3'
 libpng:
 - '1.6'
 libtiff:
-- '4.5'
+- '4.6'
 macos_machine:
 - arm64-apple-darwin20.0.0
 pcre2:
-- '10.40'
+- '10.42'
 pin_run_as_build:
   python:
     min_pin: x.x
