@@ -23,13 +23,13 @@ glib:
 gstreamer:
 - '1.22'
 libjpeg_turbo:
-- 2.1.5
+- '3'
 libpng:
 - '1.6'
 libtiff:
 - '4.6'
 libxml2:
-- '2.11'
+- '2'
 pango:
 - '1.50'
 pcre2:
