@@ -15,7 +15,7 @@ source:
 
 
 build:
-  number: 2
+  number: 3
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
