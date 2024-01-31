@@ -112,7 +112,6 @@ requirements:
 test:
   imports:
     - wx
-    - wx.lib.pubsub  # [py3k]
 
 about:
   home: https://wxpython.org/
