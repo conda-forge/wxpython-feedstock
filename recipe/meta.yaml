@@ -12,6 +12,10 @@ source:
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
     - patches/0005-MacOS-no-builtin-3rdparty.patch
+    # Remove unused import which has been removed in cython 3
+    # (https://github.com/wxWidgets/Phoenix/pull/2441)
+    # This patch can be removed in wxpython > 4.2.1
+    - patches/0006-cython3-compat.patch
 
 
 build:
