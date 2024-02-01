@@ -60,6 +60,11 @@ if [[ "$CC" == *"arm64"* ]]; then
   export NO_CODESIGN=1
 fi
 
+# The siplib files contained in the 4.2.1 tarball are incompatible
+# with python 3.12, so need to be re-generated
+# https://github.com/wxWidgets/Phoenix/issues/2455
+$PYTHON build.py sip                 "${PLATFORM_BUILD_FLAGS[@]}" --verbose --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT
+
 $PYTHON build.py build_wx install_wx "${PLATFORM_BUILD_FLAGS[@]}" --verbose --no_magic --prefix=$PREFIX --jobs=$CPU_COUNT
 
 # on macOS --no_magic isn't enough, we need to make build.py use wx-config to find
