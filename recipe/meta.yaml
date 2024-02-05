@@ -12,10 +12,14 @@ source:
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
     - patches/0005-MacOS-no-builtin-3rdparty.patch
+    # Remove unused import which has been removed in cython 3
+    # (https://github.com/wxWidgets/Phoenix/pull/2441)
+    # This patch can be removed in wxpython > 4.2.1
+    - patches/0006-cython3-compat.patch
 
 
 build:
-  number: 2
+  number: 3
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
@@ -27,6 +31,8 @@ requirements:
     - pkg-config                         # [not win]
     - gnuconfig                          # [unix]
     - make                               # [unix]
+    - setuptools
+    - sip 6.7.11
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ cdt('gtk2-devel') }}            # [linux]
@@ -108,7 +114,6 @@ requirements:
 test:
   imports:
     - wx
-    - wx.lib.pubsub  # [py3k]
 
 about:
   home: https://wxpython.org/
