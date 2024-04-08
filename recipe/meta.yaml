@@ -19,7 +19,7 @@ source:
 
 
 build:
-  number: 5
+  number: 6
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
@@ -34,6 +34,7 @@ requirements:
     - setuptools
     - sip 6.7.11
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ cdt('gtk2-devel') }}            # [linux]
     - {{ cdt('libpng-devel') }}          # [linux]
