@@ -1,9 +1,4 @@
 #!/bin/bash
-# Get an updated config.sub and config.guess
-cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets
-cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/tiff/config
-cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/png
-cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/expat/expat/conftools
 
 declare -a PLATFORM_BUILD_FLAGS
 if [[ $(uname) == Darwin ]]; then
@@ -32,23 +27,8 @@ if [[ $(uname) == Darwin ]]; then
   PLATFORM_BUILD_FLAGS+=(--mac_arch="$OSX_ARCH")
 
 elif [[ $(uname) == Linux ]]; then
-  export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include/GL -I${PREFIX}/include"
-
-  # The configure script doesn't use --rpath-link :/
-  if [[ ${ARCH} == 32 ]]; then
-    export LD_LIBRARY_PATH="${BUILD_PREFIX}/${HOST}/sysroot/usr/lib"
-  else
-    export LD_LIBRARY_PATH="${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64"
-  fi
-
-  PLATFORM_BUILD_FLAGS+=(--gtk2)
-
-  # Force shared linkage to Python, avoids issues with lto-wrapper and saves size.
-  rm -rf ${PREFIX}/lib/python${PY_VER}/config-${PY_VER}m-x86_64-linux-gnu/libpython${PY_VER}m.a
-  rm -rf ${PREFIX}/lib/libpython${PY_VER}m.a
+  PLATFORM_BUILD_FLAGS+=(--gtk3)
 fi
-
-env | sort
 
 # Disable code signing during the building stage on osx-arm64
 # The code signing in cctools-port is causing the symbolically linked

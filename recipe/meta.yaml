@@ -19,97 +19,68 @@ source:
 
 
 build:
-  number: 5
+  number: 6
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - pkg-config                         # [not win]
-    - gnuconfig                          # [unix]
-    - make                               # [unix]
-    - setuptools
+    - python                              # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - gnuconfig                           # [unix]
+    - make                                # [unix]
+    - pkg-config                          # [not win]
     - sip 6.7.11
+    - setuptools
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ cdt('gtk2-devel') }}            # [linux]
-    - {{ cdt('libpng-devel') }}          # [linux]
-    - {{ cdt('libxrender-devel') }}      # [linux]
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ cdt('libXxf86vm-devel') }}      # [linux]
-    - {{ cdt('libselinux') }}            # [linux]
-    - {{ cdt('libdrm-devel') }}          # [linux]
-    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
-    - {{ cdt('libxau-devel') }}          # [linux]
-    - {{ cdt('libx11-devel') }}          # [linux]
-    - {{ cdt('libxfixes-devel') }}       # [linux]
-    - {{ cdt('libxext-devel') }}         # [linux]
-    - {{ cdt('libxinerama') }}           # [linux]
-    - {{ cdt('libxi') }}                 # [linux]
-    - {{ cdt('libxcb') }}                # [linux]
-    - {{ cdt('libxcursor') }}            # [linux]
-    - {{ cdt('libxcomposite') }}         # [linux]
-    - {{ cdt('libxdamage-devel') }}      # [linux]
-    - {{ cdt('webkitgtk-devel') }}       # [linux]
-    - {{ cdt('libsoup-devel') }}         # [linux]
+    - {{ cdt('mesa-dri-drivers') }}       # [linux]
+    - {{ cdt('mesa-libgl-devel') }}       # [linux]
+    - {{ cdt('mesa-libegl-devel') }}      # [linux]
+    - {{ cdt('libselinux') }}             # [linux]
+    - {{ cdt('libxdamage') }}             # [linux]
+    - {{ cdt('libdrm-devel') }}           # [linux]
+    - {{ cdt('libxxf86vm') }}             # [linux]
+    - {{ cdt('libxext') }}                # [linux]
+    - {{ cdt('libxxf86vm-devel') }}       # [linux]
+
   host:
     - python
     - pip
     - attrdict3
-    - cairo  # [linux]
     - cython >=0.29.32,<3
-    - expat  # [not win]
-    - gettext  # [not win]
-    - glib  # [linux]
-    - gst-plugins-base {{ gstreamer }}  # [linux]
-    - gstreamer                         # [linux]
-    - gtk2  # [linux]
-    - libjpeg-turbo   # [not win]
-    - libglu  # [linux]
-    - libiconv  # [osx]
-    - libpng  # [not win]
-    - libtiff  # [not win]
-    - libxml2  # [linux]
-    - pango  # [linux]
-    - pathlib2
-    - pcre2  # [not win]
-    - pthread-stubs
     - requests
     - setuptools
-    - xz  # [not win]
-    - zlib  # [not win]
+    - gst-plugins-base {{ gstreamer }}  # [linux]
+    - gstreamer                         # [linux]
+    - gtk3                              # [linux]
+    - libjpeg-turbo                     # [not win]
+    - libglu                            # [linux]
+    - libiconv                          # [osx]
+    - libpng                            # [not win]
+    - libtiff                           # [not win]
+    - libxml2                           # [linux]
+    - xorg-libxfixes                    # [linux]
+    - xorg-xineramaproto                # [linux]
+    - xorg-xf86vidmodeproto             # [linux]
+    - xorg-libxxf86vm                   # [linux]
 
   run:
     - python
-    - cairo  # [linux]
-    - expat  # [not win]
-    - gettext  # [not win]
-    - glib  # [linux]
-    - gtk2  # [linux]
-    - libjpeg-turbo   # [not win]
-    - libglu  # [linux]
-    - libiconv  # [osx]
-    - libpng  # [not win]
-    - libtiff  # [not win]
-    - libxml2  # [linux]
+    - gtk3             # [linux]
+    - libjpeg-turbo    # [not win]
+    - libglu           # [linux]
+    - libiconv         # [osx]
+    - libpng           # [not win]
+    - libtiff          # [not win]
+    - libxml2          # [linux]
     - numpy
-    - pango  # [linux]
-    - pathlib2
-    - pcre2  # [not win]
     - pillow
-    - pthread-stubs
-    - pypubsub  # [py3k]
-    - python.app  # [osx]
-    - requests
+    - python.app       # [osx]
     - setuptools
     - six
-    - xz  # [not win]
-    - zlib  # [not win]
-
+    - xorg-libxxf86vm  # [linux]
 
 test:
   imports:
