@@ -2,6 +2,13 @@
 
 declare -a PLATFORM_BUILD_FLAGS
 if [[ $(uname) == Darwin ]]; then
+
+  # Get an updated config.sub and config.guess
+  cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets
+  cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/tiff/config
+  cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/png
+  cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/expat/expat/conftools
+  
   # there apparently is a c++ header file being processed as c
   # this is supposed to help against the error "'type_traits' file not found"
   export CFLAGS="${CFLAGS} -stdlib=libc++"
