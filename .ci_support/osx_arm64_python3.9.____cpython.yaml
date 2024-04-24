@@ -16,8 +16,6 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '16'
-expat:
-- '2'
 libiconv:
 - '1'
 libjpeg_turbo:
@@ -28,8 +26,6 @@ libtiff:
 - '4.6'
 macos_machine:
 - arm64-apple-darwin20.0.0
-pcre2:
-- '10.43'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -38,10 +34,6 @@ python:
 - 3.9.* *_cpython
 target_platform:
 - osx-arm64
-xz:
-- '5'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-zlib:
-- '1.2'
