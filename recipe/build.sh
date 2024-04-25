@@ -8,7 +8,8 @@ if [[ $(uname) == Darwin ]]; then
   cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/tiff/config
   cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/png
   cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/src/expat/expat/conftools
-  
+  cp $BUILD_PREFIX/share/gnuconfig/config.* ./ext/wxWidgets/3rdparty/pcre/
+
   # there apparently is a c++ header file being processed as c
   # this is supposed to help against the error "'type_traits' file not found"
   export CFLAGS="${CFLAGS} -stdlib=libc++"
