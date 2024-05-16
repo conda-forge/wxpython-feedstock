@@ -35,6 +35,7 @@ requirements:
     - setuptools
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - {{ cdt('mesa-libgl-devel') }}       # [linux]
     - {{ cdt('mesa-dri-drivers') }}       # [linux]
     - {{ cdt('libselinux') }}             # [linux]
