@@ -35,52 +35,35 @@ requirements:
     - setuptools
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ cdt('mesa-dri-drivers') }}       # [linux]
     - {{ cdt('mesa-libgl-devel') }}       # [linux]
-    - {{ cdt('mesa-libegl-devel') }}      # [linux]
+    - {{ cdt('mesa-dri-drivers') }}       # [linux]
     - {{ cdt('libselinux') }}             # [linux]
     - {{ cdt('libxdamage') }}             # [linux]
-    - {{ cdt('libdrm-devel') }}           # [linux]
     - {{ cdt('libxxf86vm') }}             # [linux]
     - {{ cdt('libxext') }}                # [linux]
-    - {{ cdt('libxxf86vm-devel') }}       # [linux]
 
   host:
     - python
     - pip
     - attrdict3
     - cython >=0.29.32,<3
+    - gtk3
     - requests
     - setuptools
-    - gst-plugins-base {{ gstreamer }}  # [linux]
-    - gstreamer                         # [linux]
-    - gtk3                              # [linux]
-    - libjpeg-turbo                     # [not win]
-    - libglu                            # [linux]
-    - libiconv                          # [osx]
-    - libpng                            # [not win]
-    - libtiff                           # [not win]
-    - libxml2                           # [linux]
-    - xorg-libxfixes                    # [linux]
-    - xorg-xineramaproto                # [linux]
-    - xorg-xf86vidmodeproto             # [linux]
-    - xorg-libxxf86vm                   # [linux]
+    - wxwidgets
+    - xorg-xineramaproto  # [linux]
+    - xorg-libxfixes      # [linux]
 
   run:
     - python
+    - python.app       # [osx]
     - gtk3             # [linux]
-    - libjpeg-turbo    # [not win]
-    - libglu           # [linux]
-    - libiconv         # [osx]
-    - libpng           # [not win]
-    - libtiff          # [not win]
-    - libxml2          # [linux]
     - numpy
     - pillow
-    - python.app       # [osx]
     - setuptools
     - six
     - xorg-libxxf86vm  # [linux]
+
 
 test:
   imports:
