@@ -48,7 +48,7 @@ requirements:
     - pip
     - attrdict3
     - cython >=0.29.32,<3
-    - gtk3
+    - gtk3                # [linux]
     - requests
     - setuptools
     - wxwidgets

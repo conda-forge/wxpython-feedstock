@@ -7,8 +7,6 @@ setlocal EnableDelayedExpansion
 "%PYTHON%" build.py sip      --no_magic --use_syswx --prefix="%PREFIX%" --jobs="%CPU_COUNT%"
 
 if errorlevel 1 exit 1
-call "%RECIPE_DIR%"\install_wxwidgets.bat
-if errorlevel 1 exit 1
 
 "%PYTHON%" build.py build_py install_py --no_magic --use_syswx --prefix="%PREFIX%" --jobs="%CPU_COUNT%" --extra_make="-v" --verbose
 if errorlevel 1 exit 1
