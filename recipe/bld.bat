@@ -9,6 +9,7 @@ setlocal EnableDelayedExpansion
 ::  - the getVisCVersion() function in buildtools/config.py
 ::  - the getMSWSettings() function in build.py
 xcopy /y /e /s  %PREFIX%\Library\lib\vc_x64_dll ext\wxWidgets\lib\vc140_x64_dll\
+if errorlevel 1 exit 1
 
 :: The siplib files contained in the 4.2.1 tarball are incompatible
 :: with python 3.12, so need to be re-generated
