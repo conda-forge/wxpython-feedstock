@@ -39,9 +39,6 @@ requirements:
     - {{ cdt('mesa-libgl-devel') }}       # [linux]
     - {{ cdt('mesa-dri-drivers') }}       # [linux]
     - {{ cdt('libselinux') }}             # [linux]
-    - {{ cdt('libxdamage') }}             # [linux]
-    - {{ cdt('libxxf86vm') }}             # [linux]
-    - {{ cdt('libxext') }}                # [linux]
 
   host:
     - python
@@ -54,6 +51,9 @@ requirements:
     - wxwidgets
     - xorg-xineramaproto  # [linux]
     - xorg-libxfixes      # [linux]
+    - xorg-libxext        # [linux]
+    - xorg-libxxf86vm     # [linux]
+    - xorg-libxdamage     # [linux]
 
   run:
     - python
@@ -63,6 +63,7 @@ requirements:
     - pillow
     - setuptools
     - six
+    # https://github.com/conda-forge/xorg-libxxf86vm-feedstock/issues/5
     - xorg-libxxf86vm  # [linux]
 
 
