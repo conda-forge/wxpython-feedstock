@@ -8,14 +8,9 @@ source:
   url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
   sha256: 5dbcb0650f67fdc2c5965795a255ffaa3d7b09fb149aa8da2d0d9aa44e38e2ba
   patches:
-    - patches/build.py.patch  # Make sure windows builds don't try to use msgfmt.
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
     - patches/0005-MacOS-no-builtin-3rdparty.patch
-    # Remove unused import which has been removed in cython 3
-    # (https://github.com/wxWidgets/Phoenix/pull/2441)
-    # This patch can be removed in wxpython > 4.2.1
-    - patches/0006-cython3-compat.patch
 
 
 build:
