@@ -20,9 +20,4 @@ BUILD_FLAGS+=(--prefix=$PREFIX)
 BUILD_FLAGS+=(--no_magic)
 BUILD_FLAGS+=(--use_syswx)
 
-# The siplib files contained in the 4.2.1 tarball are incompatible
-# with python 3.12, so need to be re-generated
-# https://github.com/wxWidgets/Phoenix/issues/2455
-$PYTHON build.py sip "${BUILD_FLAGS[@]}"
-
 $PYTHON build.py build_py install_py "${BUILD_FLAGS[@]}"
