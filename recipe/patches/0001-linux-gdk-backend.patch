@@ -1,0 +1,24 @@
+--- wxPython-4.2.2.orig/wx/__init__.py	2024-10-07 12:55:09.254843799 +0100
++++ wxPython-4.2.2/wx/__init__.py	2024-10-07 12:55:34.619599811 +0100
+@@ -7,6 +7,15 @@
+ # License:     wxWindows License
+ #---------------------------------------------------------------------------
+ 
++import os
++import platform
++
++# Set GDK_BACKEND=x11 on linux, as the conda-forge wxwidgets build
++# is compiled to use GLX, which would cause a segmentation fault
++# when running under Wayland.
++if platform.system() == 'Linux':
++    os.environ['GDK_BACKEND'] = 'x11'
++
+ # Load the main version string into the package namespace
+ import wx.__version__
+ __version__ = wx.__version__.VERSION_STRING
+@@ -20,3 +29,5 @@
+ # Clean up the package namespace
+ del core
+ del wx
++del os
++del platform
