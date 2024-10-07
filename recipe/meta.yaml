@@ -33,7 +33,7 @@ requirements:
     - make                                # [unix]
     - pkg-config                          # [not win]
     - sip 6.7.11
-    - setuptools
+    - setuptools 73.*
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
@@ -48,7 +48,7 @@ requirements:
     - cython >=0.29.32,<3
     - gtk3                # [linux]
     - requests
-    - setuptools
+    - setuptools 73.*
     - wxwidgets 3.2.5
     - xorg-xineramaproto  # [linux]
     - xorg-libxfixes      # [linux]
