@@ -9,6 +9,7 @@ source:
   sha256: e48de211a6606bf072ec3fa778771d6b746c00b7f4b970eb58728ddf56d13d5c
   patches:
     - patches/build.py.patch  # Make sure windows builds don't try to use msgfmt.
+    - patches/0001-linux-gdk-backend.patch
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
     - patches/0005-MacOS-no-builtin-3rdparty.patch
@@ -19,7 +20,7 @@ source:
 
 
 build:
-  number: 6
+  number: 7
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
@@ -32,7 +33,7 @@ requirements:
     - make                                # [unix]
     - pkg-config                          # [not win]
     - sip 6.7.11
-    - setuptools
+    - setuptools 73.*
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
@@ -47,8 +48,8 @@ requirements:
     - cython >=0.29.32,<3
     - gtk3                # [linux]
     - requests
-    - setuptools
-    - wxwidgets
+    - setuptools 73.*
+    - wxwidgets 3.2.5
     - xorg-xineramaproto  # [linux]
     - xorg-libxfixes      # [linux]
     - xorg-libxext        # [linux]
@@ -63,6 +64,7 @@ requirements:
     - pillow
     - setuptools
     - six
+    - wxwidgets 3.2.5
     # https://github.com/conda-forge/xorg-libxxf86vm-feedstock/issues/5
     - xorg-libxxf86vm  # [linux]
 
