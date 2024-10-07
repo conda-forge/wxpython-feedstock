@@ -64,6 +64,7 @@ requirements:
     - pillow
     - setuptools
     - six
+    - wxwidgets 3.2.5
     # https://github.com/conda-forge/xorg-libxxf86vm-feedstock/issues/5
     - xorg-libxxf86vm  # [linux]
 
