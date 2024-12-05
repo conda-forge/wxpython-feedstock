@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
   sha256: 5dbcb0650f67fdc2c5965795a255ffaa3d7b09fb149aa8da2d0d9aa44e38e2ba
   patches:
     - patches/0001-linux-gdk-backend.patch
@@ -15,7 +15,7 @@ source:
 
 
 build:
-  number: 2
+  number: 3
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
