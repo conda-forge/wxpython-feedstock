@@ -15,7 +15,7 @@ source:
 
 
 build:
-  number: 4
+  number: 5
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
@@ -44,12 +44,15 @@ requirements:
     - gtk3                # [linux]
     - requests
     - setuptools
-    - wxwidgets 3.2.6
+    - wxwidgets
     - xorg-xineramaproto  # [linux]
     - xorg-libxfixes      # [linux]
     - xorg-libxext        # [linux]
     - xorg-libxxf86vm     # [linux]
     - xorg-libxdamage     # [linux]
+    - xorg-xorgproto      # [linux]
+    - zlib                # [linux]
+    - liblzma-devel       # [linux]
 
   run:
     - python
