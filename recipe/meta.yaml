@@ -1,4 +1,4 @@
-{% set version = "4.2.2" %}
+{% set version = "4.2.3" %}
 
 package:
   name: wxpython
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha256: 5dbcb0650f67fdc2c5965795a255ffaa3d7b09fb149aa8da2d0d9aa44e38e2ba
+  sha256: 20d6e0c927e27ced85643719bd63e9f7fd501df6e9a8aab1489b039897fd7c01
   patches:
     - patches/0001-linux-gdk-backend.patch
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
@@ -15,7 +15,7 @@ source:
 
 
 build:
-  number: 7
+  number: 0
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
@@ -27,7 +27,7 @@ requirements:
     - gnuconfig                           # [unix]
     - make                                # [unix]
     - pkg-config                          # [not win]
-    - sip 6.8.6
+    - sip 6.10.0
     - setuptools
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
