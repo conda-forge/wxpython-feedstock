@@ -56,14 +56,15 @@ requirements:
 
   run:
     - python
-    - python.app       # [osx]
-    - gtk3             # [linux]
+    - python.app         # [osx]
+    - gtk3               # [linux]
     - numpy
     - pillow
     - setuptools
     - six
+    - typing_extensions  # [py < 311]
     # https://github.com/conda-forge/xorg-libxxf86vm-feedstock/issues/5
-    - xorg-libxxf86vm  # [linux]
+    - xorg-libxxf86vm    # [linux]
 
 
 test:
