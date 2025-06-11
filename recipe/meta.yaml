@@ -41,6 +41,7 @@ requirements:
     - pip
     - attrdict3
     - cython 3.0.11
+    - expat               # [linux]
     - gtk3                # [linux]
     - requests
     - setuptools
