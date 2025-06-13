@@ -15,7 +15,7 @@ source:
 
 
 build:
-  number: 0
+  number: 1
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
@@ -41,6 +41,7 @@ requirements:
     - pip
     - attrdict3
     - cython 3.0.11
+    - expat               # [linux]
     - gtk3                # [linux]
     - requests
     - setuptools
