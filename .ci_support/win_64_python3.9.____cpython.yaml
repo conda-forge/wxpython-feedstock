@@ -17,4 +17,4 @@ python:
 target_platform:
 - win-64
 wxwidgets:
-- 3.2.8
+- 3.3.0
