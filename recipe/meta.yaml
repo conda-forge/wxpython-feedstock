@@ -63,8 +63,6 @@ requirements:
     - setuptools
     - six
     - typing_extensions  # [py < 311]
-    # https://github.com/conda-forge/xorg-libxxf86vm-feedstock/issues/5
-    - xorg-libxxf86vm    # [linux]
 
 
 test:
