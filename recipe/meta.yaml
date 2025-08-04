@@ -44,7 +44,7 @@ requirements:
     - libglx-devel        # [linux]
     - requests
     - setuptools
-    - wxwidgets
+    - wxwidgets 3.2
     - xorg-xineramaproto  # [linux]
     - xorg-libxfixes      # [linux]
     - xorg-libxext        # [linux]
