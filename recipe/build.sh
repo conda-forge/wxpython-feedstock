@@ -19,5 +19,6 @@ BUILD_FLAGS+=(--prefix=$PREFIX)
 # Build against existing wxwidgets installed in $PREFIX
 BUILD_FLAGS+=(--no_magic)
 BUILD_FLAGS+=(--use_syswx)
+BUILD_FLAGS+=(--dump_waf_log)
 
-$PYTHON build.py build_py install_py "${BUILD_FLAGS[@]}"
+${PYTHON} build.py build_py install_py "${BUILD_FLAGS[@]}"

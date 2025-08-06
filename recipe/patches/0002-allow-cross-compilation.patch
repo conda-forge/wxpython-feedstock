@@ -1,0 +1,36 @@
+diff --git a/wscript b/wscript
+index e4f982e4..c87692eb 100644
+--- a/wscript
++++ b/wscript
+@@ -87,6 +87,31 @@ def configure(conf):
+     if conf.options.python:
+         conf.env.PYTHON = conf.options.python
+     conf.load('python')
++    if getattr(sys, 'cross_compiling', False):
++        # This list copied from check_python_headers
++        env_vars = ('prefix SO EXT_SUFFIX LDFLAGS LIBDIR LIBPL INCLUDEPY '
++                    'Py_ENABLE_SHARED MACOSX_DEPLOYMENT_TARGET LDSHARED '
++                    'CFLAGS LDVERSION'.split())
++        for var in env_vars:
++            try:
++                conf.environ[var] = conf.get_sysconfig_variable(var)
++            except Exception:
++                print(f'Missing sysconfig variable {var} - ignoring')
++
++        # Build python should be the same version as the host python
++        # https://crossenv.readthedocs.io/en/latest/quickstart.html#build-build-python
++        pymaj, pymin = sys.version_info[:2]
++        pyver        = f'{pymaj}.{pymin}'
++        tagver       = f'{pymaj}{pymin}'
++        # python_cross_compile requires these env vars to be set
++        conf.environ['PYTHON_VERSION'] = pyver
++        conf.environ['PYTAG']          = f'cpython{tagver}'
++        conf.environ['pyext_PATTERN']  = '%s.so'
++        conf.environ['PYTHON_LDFLAGS'] = conf.environ['LDFLAGS']
++        # Python header dirs need to be added to INCLUDES_PYEXT
++        conf.env.INCLUDES_PYEXT        = [conf.environ['INCLUDEPY']]
++        conf.python_cross_compile(features='pyext')
++
+     conf.check_python_version(minver=(3,7,0))
+     conf.check_python_headers(features='pyext')
+ 
