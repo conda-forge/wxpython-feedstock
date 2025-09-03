@@ -16,7 +16,7 @@ source:
 
 
 build:
-  number: 3
+  number: 4
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
@@ -29,7 +29,7 @@ requirements:
     - gnuconfig                           # [unix]
     - make                                # [unix]
     - pkg-config                          # [not win]
-    - sip 6.10.0
+    - sip
     - setuptools
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
