@@ -1,12 +1,12 @@
-{% set version = "4.2.3" %}
+{% set version = "4.2.4" %}
 
 package:
   name: wxpython
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/w/wxPython/wxPython-{{ version }}.tar.gz
-  sha256: 20d6e0c927e27ced85643719bd63e9f7fd501df6e9a8aab1489b039897fd7c01
+  url: https://pypi.org/packages/source/w/wxPython/wxpython-{{ version }}.tar.gz
+  sha256: 2eb123979c87bcb329e8a2452269d60ff8f9f651e9bf25c67579e53c4ebbae3c
   patches:
     - patches/0001-linux-gdk-backend.patch
     - patches/0002-allow-cross-compilation.patch
@@ -16,7 +16,7 @@ source:
 
 
 build:
-  number: 4
+  number: 0
   osx_is_app: true  # [osx]
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
