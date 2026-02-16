@@ -46,6 +46,7 @@ requirements:
     - libglx-devel        # [linux]
     - requests
     - setuptools
+    - typing_extensions   # [py < 311]
     - wxwidgets 3.2
     - xorg-xineramaproto  # [linux]
     - xorg-libxfixes      # [linux]
