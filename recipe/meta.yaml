@@ -28,8 +28,7 @@ requirements:
     - gnuconfig                           # [unix]
     - make                                # [unix]
     - pkg-config                          # [not win]
-    - sip
-    - setuptools
+    - sip                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
@@ -45,6 +44,7 @@ requirements:
     - libglx-devel        # [linux]
     - requests
     - setuptools
+    - sip
     - typing_extensions   # [py < 311]
     - wxwidgets 3.2
     - xorg-xineramaproto  # [linux]
