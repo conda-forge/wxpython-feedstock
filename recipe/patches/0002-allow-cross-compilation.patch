@@ -1,5 +1,5 @@
 diff --git a/wscript b/wscript
-index e4f982e4..c87692eb 100644
+index 6da5e7de..6599ee45 100644
 --- a/wscript
 +++ b/wscript
 @@ -87,6 +87,31 @@ def configure(conf):

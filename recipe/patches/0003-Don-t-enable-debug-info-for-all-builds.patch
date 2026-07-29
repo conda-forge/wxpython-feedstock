@@ -1,8 +1,10 @@
---- wxPython-4.0.6.orig/wscript	2019-05-21 20:12:12.000000000 -0300
-+++ wxPython-4.0.6/wscript	2019-05-22 18:42:57.255117941 -0300
-@@ -316,12 +316,11 @@
-         conf.env.CFLAGS_WXPY.append('-DSIP_MODULE_BASENAME=siplib')
-         conf.env.CXXFLAGS_WXPY.append('-DSIP_MODULE_BASENAME=siplib')
+diff --git a/wscript b/wscript
+index 6599ee45..cf2d2307 100644
+--- a/wscript
++++ b/wscript
+@@ -324,12 +324,11 @@ def configure(conf):
+         conf.env.CFLAGS_WXPY.append('-UNDEBUG')
+         conf.env.CXXFLAGS_WXPY.append('-UNDEBUG')
  
 -        # Add basic debug info for all builds
 -        conf.env.CFLAGS_WXPY.append('-g')
