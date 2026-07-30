@@ -48,7 +48,7 @@ requirements:
     - setuptools
     - sip
     - typing_extensions   # [py < 311]
-    - wxwidgets 3.2
+    - wxwidgets 3.3.3
     - xorg-xineramaproto  # [linux]
     - xorg-libxfixes      # [linux]
     - xorg-libxext        # [linux]
