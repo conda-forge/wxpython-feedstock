@@ -1,5 +1,7 @@
---- wxPython-4.2.2.orig/wx/__init__.py	2024-10-07 12:55:09.254843799 +0100
-+++ wxPython-4.2.2/wx/__init__.py	2024-10-07 12:55:34.619599811 +0100
+diff --git a/wx/__init__.py b/wx/__init__.py
+index 649af3a7..06cbefee 100644
+--- a/wx/__init__.py
++++ b/wx/__init__.py
 @@ -7,6 +7,15 @@
  # License:     wxWindows License
  #---------------------------------------------------------------------------
@@ -16,7 +18,7 @@
  # Load the main version string into the package namespace
  import wx.__version__
  __version__ = wx.__version__.VERSION_STRING
-@@ -20,3 +29,5 @@
+@@ -20,3 +29,5 @@ from wx.core import *
  # Clean up the package namespace
  del core
  del wx
