@@ -1,4 +1,4 @@
-{% set version = "4.3.0" %}
+{% set version = "4.3.1" %}
 
 package:
   name: wxpython
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/w/wxPython/wxpython-{{ version }}.tar.gz
-  sha256: 33d17964ba7392a7d08d4cdfe6573ab331fe61b3ba2e281f202fd8b4e0ef7810
+  sha256: 4e3a95b63175be8e10f0662de506a36d8cc6cb86ecc5b30ae880c8dafb34a0cd
   patches:
     - patches/0001-linux-gdk-backend.patch
     - patches/0002-allow-cross-compilation.patch
