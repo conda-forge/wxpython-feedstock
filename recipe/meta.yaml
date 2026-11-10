@@ -16,7 +16,7 @@ source:
 
 
 build:
-  number: 0
+  number: 1
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
 
@@ -28,7 +28,7 @@ requirements:
     - freetype                            # [build_platform != target_platform and linux]
     - gnuconfig                           # [unix]
     - make                                # [unix]
-    - pkg-config                          # [not win]
+    - pkgconf                             # [not win]
     - sip                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
