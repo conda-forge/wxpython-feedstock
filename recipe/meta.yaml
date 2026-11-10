@@ -28,7 +28,7 @@ requirements:
     - freetype                            # [build_platform != target_platform and linux]
     - gnuconfig                           # [unix]
     - make                                # [unix]
-    - pkg-config                          # [not win]
+    - pkgconf                             # [not win]
     - sip                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
