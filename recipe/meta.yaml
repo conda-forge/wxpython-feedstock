@@ -8,7 +8,6 @@ source:
   url: https://files.pythonhosted.org/packages/source/w/wxPython/wxpython-{{ version }}.tar.gz
   sha256: 5531baa9344488a15081a6b2eaeb67af047d12a814cf657c082360ccc37204fb
   patches:
-    - patches/0001-linux-gdk-backend.patch
     - patches/0002-allow-cross-compilation.patch
     - patches/0003-Don-t-enable-debug-info-for-all-builds.patch
     - patches/0004-enable-use-of-no_magic-and-install_wx-on-Windows.patch
@@ -16,7 +15,7 @@ source:
 
 
 build:
-  number: 1
+  number: 2
   missing_dso_whitelist:   # [osx]
     - /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit  # [osx]
 
